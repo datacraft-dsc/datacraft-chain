@@ -14,3 +14,5 @@ source venv/bin/activate
 pip3 install web3
 
 pip3 install py-solc-x
+
+python -m solcx.install v0.5.6
