@@ -1,6 +1,6 @@
 pragma solidity 0.5.6;
 
-import 'token.sol';
+import 'contracts/OceanToken.sol';
 
 contract DirectPurchase {
 
