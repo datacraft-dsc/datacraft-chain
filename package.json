@@ -1,0 +1,27 @@
+{
+  "name": "direct-purchase",
+  "version": "1.0.0",
+  "description": "# for Ubuntu sudo add-apt-repository ppa:ethereum/ethereum",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEX-Company/direct-purchase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DEX-Company/direct-purchase/issues"
+  },
+  "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "2.3.0",
+    "truffle": "5.0.30"
+  }
+}
