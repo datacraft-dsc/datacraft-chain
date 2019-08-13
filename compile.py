@@ -39,10 +39,13 @@ print("Token contract address: ", token_address)
 purchase_address = deploy_contract(purchase_contract, token_address)
 print("Direct purchase contract address: ", purchase_address)
 
-with open('purchase.json', 'w') as outfile:
+with open('artifacts/DirectPurchase.spree.json', 'w') as outfile:
     data = {
+	"name": 'DirectPurchase',
         "abi": purchase_contract['abi'],
-        "contract_address": purchase_address
+        "address": purchase_address,
+	"implementation": purchase_address,
+	"version": "v0.10.3"
     }
     json.dump(data, outfile, indent=4, sort_keys=True)
 
