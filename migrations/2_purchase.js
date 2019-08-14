@@ -1,5 +1,11 @@
 const Purchase = artifacts.require("DirectPurchase");
 const Token = artifacts.require("OceanToken");
+var stdio = require('stdio');
+var ops = stdio.getopt({
+    'artifacts': {key: 'a', description: 'Take ABI from artifacts'},
+    'reset': {key: 'r', description: ''},
+    'compile-all': {key: 'c', description: ''}
+});
 
 module.exports = function(deployer) {
     // Deploy the Token contract
