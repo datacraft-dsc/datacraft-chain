@@ -1,5 +1,6 @@
 const Purchase = artifacts.require("DirectPurchase");
 const stdio = require('stdio');
+const fs = require('fs');
 
 var ops = stdio.getopt({
     'artifacts': {key: 'a', description: 'Take ABI from artifacts'},
@@ -10,7 +11,6 @@ var ops = stdio.getopt({
 module.exports = async function(deployer) {
 	if(ops.artifacts) {
             pipeline = deployer.then(() => {
-		const fs = require('fs');
 		const path = require("path");
 		var obj = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../artifacts/OceanToken.spree.json")));
 		token_address = obj.address;
@@ -28,5 +28,17 @@ module.exports = async function(deployer) {
         // Token contract
         pipeline.then(() => deployer.deploy(Purchase, token_address))
         .then(() => Purchase.deployed())
-        .then(() => console.log("Contract deployed with token address:", token_address));
+        .then(() => {
+		console.log("Contract deployed with token address:", token_address);
+
+		let obj = {
+			"name": 'DirectPurchase',
+			"abi": Purchase.abi,
+			"address": Purchase.address,
+			"implementation": Purchase.address,
+			"version": "v0.10.3"
+		}
+		let data = JSON.stringify(obj);
+		fs.writeFileSync('artifacts/DirectPurchase.spree.json', data);
+	});
 }
