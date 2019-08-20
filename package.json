@@ -22,6 +22,7 @@
   "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
   "dependencies": {
     "openzeppelin-solidity": "2.3.0",
+    "stdio": "0.2.7",
     "truffle": "5.0.30"
   }
 }
