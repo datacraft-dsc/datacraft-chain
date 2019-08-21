@@ -12,14 +12,31 @@ sudo npm init -y
 sudo npm install --save-exact truffle
 sudo npm install --save-exact openzeppelin-solidity
 truffle init
-# uncomment needed network ./truffle-config.js
 ```
 ## To compile and deploy with Truffle
+#### Locally with compiling simulated Ocean Token on the empty network
 ```
+export NODE_HOST="127.0.0.1"
+export NODE_PORT=8545
 truffle compile
 trufle migrate
 # or to re-build from scratch:
 truffle migrate --reset --compile-all
+```
+#### Locally with reusing existing Ocean Token on running barge
+```
+export NODE_HOST="127.0.0.1"
+export NODE_PORT=8545
+truffle compile
+trufle migrate --artifacts
+# or to re-build from scratch:
+truffle migrate --reset --compile-all --artifacts
+```
+#### Using docker container on running barge
+```
+# Download artifacts to your host folder
+docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts folder>:/usr/local/keeper-contracts -v <full path to your host artifacts folder>:/deployment/artifacts --env NODE_HOST="keeper-node" --env NODE_PORT=8545 direct-purchase
+# To observe newly generated DirectPurchase.spree.json artifact file in your host artifacts folder
 ```
 ## Install dependecies for Python
 ```
