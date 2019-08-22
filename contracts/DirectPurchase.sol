@@ -1,10 +1,11 @@
 pragma solidity 0.5.6;
 
-import 'contracts/OceanToken.sol';
+import 'openzeppelin-solidity/contracts/token/ERC20/IERC20.sol';
+
 
 contract DirectPurchase {
 
-OceanToken token;
+IERC20 token;
 
     event TokenSent(
 	address indexed _from,
@@ -14,7 +15,7 @@ OceanToken token;
 	bytes32 _reference2
     );
 
-    constructor(OceanToken _token) public
+    constructor(IERC20 _token) public
     {
 	token = _token;
     }

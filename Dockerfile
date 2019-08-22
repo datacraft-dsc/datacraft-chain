@@ -13,11 +13,8 @@ RUN npm install --save-exact openzeppelin-solidity
 
 COPY truffle-config.js /deployment/truffle-config.js
 COPY patch.sh /deployment/patch.sh
-COPY contracts /deployment/contracts
-COPY migrations /deployment/migrations
+COPY contracts/DirectPurchase.sol /deployment/contracts/DirectPurchase.sol
+COPY contracts/Migrations.sol /deployment/contracts/Migrations.sol
+COPY migrations/2_purchase.js /deployment/migrations/1_purchase.js
 
 CMD ./patch.sh
-
-
-
-
