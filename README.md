@@ -18,6 +18,7 @@ truffle init
 ```
 export NODE_HOST="127.0.0.1"
 export NODE_PORT=8545
+export ARTIFACTS_FOLDER=artifacts
 truffle compile
 trufle migrate
 # or to re-build from scratch:
@@ -27,6 +28,7 @@ truffle migrate --reset --compile-all
 ```
 export NODE_HOST="127.0.0.1"
 export NODE_PORT=8545
+export ARTIFACTS_FOLDER=artifacts
 truffle compile
 trufle migrate --artifacts
 # or to re-build from scratch:
@@ -35,7 +37,7 @@ truffle migrate --reset --compile-all --artifacts
 #### Using docker container on running barge
 ```
 # Download artifacts to your host folder
-docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts folder>:/usr/local/keeper-contracts -v <full path to your host artifacts folder>:/deployment/artifacts --env NODE_HOST="keeper-node" --env NODE_PORT=8545 direct-purchase
+docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts folder>:/usr/local/keeper-contracts --env NODE_HOST="keeper-node" --env NODE_PORT=8545 --env ARTIFACTS_FOLDER=/usr/local/keeper-contracts direct-purchase
 # To observe newly generated DirectPurchase.spree.json artifact file in your host artifacts folder
 ```
 ## Install dependecies for Python
