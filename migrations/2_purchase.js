@@ -1,6 +1,8 @@
 const Purchase = artifacts.require("DirectPurchase");
 const stdio = require('stdio');
 const fs = require('fs');
+const dotenv = require('dotenv');
+dotenv.config();
 
 var ops = stdio.getopt({
     'artifacts': {key: 'a', description: 'Take ABI from artifacts'},
@@ -12,7 +14,7 @@ module.exports = async function(deployer) {
 	if(ops.artifacts) {
             pipeline = deployer.then(() => {
 		const path = require("path");
-		var obj = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../artifacts/OceanToken.spree.json")));
+		var obj = JSON.parse(fs.readFileSync(process.env.ARTIFACTS_FOLDER+'/OceanToken.spree.json'));
 		token_address = obj.address;
 	    });
 	} else {
@@ -39,6 +41,6 @@ module.exports = async function(deployer) {
 			"version": "v0.10.3"
 		}
 		let data = JSON.stringify(obj);
-		fs.writeFileSync('artifacts/DirectPurchase.spree.json', data);
+		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.spree.json', data);
 	});
 }
