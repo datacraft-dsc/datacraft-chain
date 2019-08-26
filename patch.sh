@@ -16,4 +16,4 @@ if [ "${LOCAL_CONTRACTS}" = "true" ]; then
 	done
 fi
 ./node_modules/.bin/truffle migrate --reset --compile-all --artifacts
-touch "/usr/local/keeper-contracts/ready-purchase"
+touch "/usr/local/keeper-contracts/dex-ready"
