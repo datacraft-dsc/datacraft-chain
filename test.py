@@ -8,7 +8,7 @@ w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 with open('token.json', 'r') as infile:
     parce = json.loads(infile.read())
 abi = parce['abi']
-contract_address = parce['contract_address']
+contract_address = parce['address']
 token = w3.eth.contract(
     address=contract_address,
     abi=abi,
@@ -45,7 +45,7 @@ print('Account 3: {}'.format(
 with open('purchase.json', 'r') as infile:
     parce = json.loads(infile.read())
 abi = parce['abi']
-purchase_address = parce['contract_address']
+purchase_address = parce['address']
 purchase_contract = w3.eth.contract(
     address=purchase_address,
     abi=abi,
