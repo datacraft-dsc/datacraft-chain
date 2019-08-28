@@ -20,12 +20,15 @@ print('Name: {}'.format(
     token.functions.name().call()
 ))
 
+w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = token.functions.mint(w3.eth.accounts[1],100000000000000).transact({'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 
+w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = token.functions.mint(w3.eth.accounts[2],100000000000000).transact({'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 
+w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = token.functions.mint(w3.eth.accounts[3],100000000000000).transact({'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 
@@ -42,7 +45,7 @@ print('Account 3: {}'.format(
     token.functions.balanceOf(w3.eth.accounts[3]).call()
 ))
 
-with open('purchase.json', 'r') as infile:
+with open('artifacts/DirectPurchase.spree.json', 'r') as infile:
     parce = json.loads(infile.read())
 abi = parce['abi']
 purchase_address = parce['address']
@@ -53,11 +56,13 @@ purchase_contract = w3.eth.contract(
 
 concise_purchase = ConciseContract(purchase_contract)
 
+w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = token.functions.approve(purchase_address, 100).transact({'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 
 event_filter = purchase_contract.events.TokenSent.createFilter(fromBlock="latest")
 
+w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = concise_purchase.sendTokenAndLog(w3.eth.accounts[3], 100, Web3.toBytes(50), Web3.toBytes(50), transact = {'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 print('Transaction log raw: {}'.format(tx_receipt['logs'][2]['data']))

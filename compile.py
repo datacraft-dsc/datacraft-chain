@@ -16,6 +16,7 @@ def deploy_contract(contract_interface, *argv):
         abi=contract_interface['abi'],
         bytecode=contract_interface['bin']
     )
+    w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
     # Get transaction hash from deployed contract
     tx_hash =contract.constructor(*argv).transact({'from':w3.eth.accounts[1]})
     # Get tx receipt to get contract address
@@ -52,7 +53,7 @@ with open('artifacts/DirectPurchase.spree.json', 'w') as outfile:
 with open('token.json', 'w') as outfile:
     data = {
         "abi": token_contract['abi'],
-        "contract_address": token_address
+        "address": token_address
     }
     json.dump(data, outfile, indent=4, sort_keys=True)
 
