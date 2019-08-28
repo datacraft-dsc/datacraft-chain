@@ -44,7 +44,7 @@ docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts f
 ```
 virtualenv -p /usr/bin/python3.6 venv
 source venv/bin/activate
-pip3 install web3
+pip3 install 'web3==4.5.0' # only this version works fine with parity and locking/unlocking account feature
 pip3 install py-solc-x
 python -m solcx.install v0.5.6
 ```
