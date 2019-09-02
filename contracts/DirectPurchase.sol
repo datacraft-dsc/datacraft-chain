@@ -12,7 +12,7 @@ IERC20 token;
 	address indexed _to,
 	uint256 _amount,
         bytes32 _reference1,
-	bytes32 _reference2
+	bytes32 indexed _reference2
     );
 
     constructor(IERC20 _token) public
