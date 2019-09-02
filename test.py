@@ -60,14 +60,15 @@ w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = token.functions.approve(purchase_address, 100).transact({'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 
-event_filter = purchase_contract.events.TokenSent.createFilter(fromBlock="latest")
-
 w3.personal.unlockAccount(w3.eth.accounts[1], 'secret')
 tx_hash = concise_purchase.sendTokenAndLog(w3.eth.accounts[3], 100, Web3.toBytes(50), Web3.toBytes(50), transact = {'from': w3.eth.accounts[1]})
 tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+
 print('Transaction log raw: {}'.format(tx_receipt['logs'][2]['data']))
 print('Transaction log indexed:')
-event = event_filter.get_new_entries()[0].args
+event_filter = purchase_contract.events.TokenSent.createFilter(fromBlock=1, toBlock="latest", argument_filters={'_from':w3.eth.accounts[1], '_to':w3.eth.accounts[3], '_reference2':Web3.toBytes(50)}) 
+event = event_filter.get_all_entries()[0].args
+
 print(event._from)
 print(event._to)
 print(event._amount)
