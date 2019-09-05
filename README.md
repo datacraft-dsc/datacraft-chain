@@ -1,9 +1,12 @@
 # Direct purchase using Ocean token
 
-## Install Solidity compiler for Ubuntu
+## Install Solidity compiler for Ubuntu and Truffle environment
 ```
 sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
+sudo apt install nodejs
+sudo apt install npm
+sudo apt install gcc g++ make
 sudo apt-get install solc
 ```
 ## Install Truffle
@@ -11,6 +14,7 @@ sudo apt-get install solc
 sudo npm init -y
 sudo npm install --save-exact truffle
 sudo npm install --save-exact openzeppelin-solidity
+sudo npm install --save-exact dotenv
 truffle init
 ```
 ## To compile and deploy with Truffle
