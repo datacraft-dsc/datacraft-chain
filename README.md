@@ -13,9 +13,18 @@ sudo apt-get install solc
 ```
 sudo npm init -y
 sudo npm install --save-exact truffle
-sudo npm install --save-exact openzeppelin-solidity
 sudo npm install --save-exact dotenv
 truffle init
+```
+## Install Openzeppelin for upgradability support
+```
+npm install --global @openzeppelin/cli
+npm install @openzeppelin/upgrades
+npm install @openzeppelin/contracts-ethereum-package
+openzeppelin init
+openzeppelin link @openzeppelin/contracts-ethereum-package
+openzeppelin add OceanToken
+openzeppelin add DirectPurchase
 ```
 ## To compile and deploy with Truffle
 #### Locally with compiling simulated Ocean Token on the empty network
