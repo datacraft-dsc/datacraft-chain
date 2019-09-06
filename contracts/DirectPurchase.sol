@@ -1,9 +1,10 @@
 pragma solidity 0.5.6;
 
-import 'openzeppelin-solidity/contracts/token/ERC20/IERC20.sol';
+import '@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol';
+import "@openzeppelin/upgrades/contracts/Initializable.sol";
 
 
-contract DirectPurchase {
+contract DirectPurchase is Initializable {
 
 IERC20 token;
 
@@ -15,7 +16,10 @@ IERC20 token;
 	bytes32 indexed _reference2
     );
 
-    constructor(IERC20 _token) public
+    function initialize(IERC20 _token
+    )
+        public
+        initializer
     {
 	token = _token;
     }

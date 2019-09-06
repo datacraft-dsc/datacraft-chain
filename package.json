@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
   "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.2.3",
+    "@openzeppelin/upgrades": "^2.5.3",
     "dotenv": "^8.1.0",
     "openzeppelin-solidity": "2.3.0",
     "stdio": "0.2.7",
