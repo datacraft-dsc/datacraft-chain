@@ -22,7 +22,7 @@ npm install --global @openzeppelin/cli
 npm install @openzeppelin/upgrades
 npm install @openzeppelin/contracts-ethereum-package
 openzeppelin init
-openzeppelin link @openzeppelin/contracts-ethereum-package
+openzeppelin link @openzeppelin/contracts-ethereum-package --push <network name> --skip-compile 
 openzeppelin add OceanToken
 openzeppelin add DirectPurchase
 ```
