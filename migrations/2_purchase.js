@@ -7,7 +7,8 @@ dotenv.config();
 var ops = stdio.getopt({
     'artifacts': {key: 'a', description: 'Take ABI from artifacts'},
     'reset': {key: 'r', description: ''},
-    'compile-all': {key: 'c', description: ''}
+    'compile-all': {key: 'c', description: ''},
+    'proxy': {key: 'p', description: 'Deploy upgradable proxy'}
 });
 
 function getTokenAddress() {
@@ -16,7 +17,45 @@ function getTokenAddress() {
 	return obj.address;
 }
 
-module.exports = async function(deployer) {
+module.exports = async function(deployer, networkName, accounts) {
+	if(ops.proxy) {
+		const { scripts, ConfigManager } = require('@openzeppelin/cli');
+		const { add, push, create } = scripts;
+		token_address = getTokenAddress();
+		async function installProxy(options) {
+		  add({ contractsData: [{ name: 'DirectPurchase', alias: 'DirectPurchase' }] });
+
+		  await push(options);
+
+		  await create(Object.assign({ contractAlias: 'DirectPurchase', methodName: 'initialize', methodArgs:[token_address] }, options));
+		}
+		deployer.then(async () => {
+    		const { network, txParams } = await ConfigManager.initNetworkConfiguration({ network: networkName, from: accounts[0] });
+    		await installProxy({ network, txParams });
+
+		const networkId = await web3.eth.net.getId();
+		obj_json = JSON.parse(fs.readFileSync('.openzeppelin/'+'dev-' + networkId + '.json'));
+
+		proxy_name = Object.keys(obj_json.proxies)[0];
+		proxies_number = obj_json.proxies[proxy_name].length;
+		proxy = obj_json.proxies[proxy_name][proxies_number - 1];
+		
+		const { Contracts, SimpleProject, ZWeb3 } = require('@openzeppelin/upgrades');
+		const direct_purchase_contract = Contracts.getFromLocal('DirectPurchase');
+
+		let obj = {
+			"name": 'DirectPurchase',
+			"abi": direct_purchase_contract.schema.abi,
+			"address": proxy.address,
+			"implementation": proxy.implementation,
+			"version": proxy.version
+		}
+		let data = JSON.stringify(obj);
+		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.spree.json', data);
+		console.log("Contract deployed with token address:", token_address);
+  		});
+	} else {
+
 	if(ops.artifacts) {
             pipeline = deployer.then(() => {
 		token_address = getTokenAddress();
@@ -47,4 +86,5 @@ module.exports = async function(deployer) {
 		let data = JSON.stringify(obj);
 		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.spree.json', data);
 	});
+	}
 }
