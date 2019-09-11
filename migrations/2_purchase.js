@@ -10,12 +10,16 @@ var ops = stdio.getopt({
     'compile-all': {key: 'c', description: ''}
 });
 
+function getTokenAddress() {
+	const path = require("path");
+	var obj = JSON.parse(fs.readFileSync(process.env.ARTIFACTS_FOLDER+'/OceanToken.spree.json'));
+	return obj.address;
+}
+
 module.exports = async function(deployer) {
 	if(ops.artifacts) {
             pipeline = deployer.then(() => {
-		const path = require("path");
-		var obj = JSON.parse(fs.readFileSync(process.env.ARTIFACTS_FOLDER+'/OceanToken.spree.json'));
-		token_address = obj.address;
+		token_address = getTokenAddress();
 	    });
 	} else {
 	    const Token = artifacts.require("OceanToken");
