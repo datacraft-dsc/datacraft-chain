@@ -1,8 +1,7 @@
 {
   "manifestVersion": "2.2",
   "contracts": {
-    "DirectPurchase": "DirectPurchase",
-    "OceanToken": "OceanToken"
+    "DirectPurchase": "DirectPurchase"
   },
   "dependencies": {
     "@openzeppelin/contracts-ethereum-package": "^2.2.3"
