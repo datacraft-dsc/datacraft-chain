@@ -47,6 +47,17 @@ trufle migrate --artifacts
 # or to re-build from scratch:
 truffle migrate --reset --compile-all --artifacts
 ```
+#### Locally with reusing existing Ocean Token on running barge with upgradable proxy deployment
+```
+export NODE_HOST="127.0.0.1"
+export NODE_PORT=8545
+export ARTIFACTS_FOLDER=artifacts
+truffle migrate --reset --compile-all --proxy
+```
+#### To recompile Solidity contract and upgrade proxy
+```
+openzeppelin upgrade
+```
 #### Using docker container on running barge
 ```
 # Download artifacts to your host folder
