@@ -23,7 +23,6 @@ npm install @openzeppelin/upgrades
 npm install @openzeppelin/contracts-ethereum-package
 openzeppelin init
 openzeppelin link @openzeppelin/contracts-ethereum-package --push <network name> --skip-compile 
-openzeppelin add OceanToken
 openzeppelin add DirectPurchase
 ```
 ## To compile and deploy with Truffle
