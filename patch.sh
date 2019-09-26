@@ -14,6 +14,7 @@ if [ "${LOCAL_CONTRACTS}" = "true" ]; then
 	    sleep 5
 	    (( RETRY_COUNT=RETRY_COUNT+1 ))
 	done
-fi
 ./node_modules/.bin/truffle migrate --reset --compile-all --artifacts
 touch "/usr/local/keeper-contracts/dex-ready"
+fi
+
