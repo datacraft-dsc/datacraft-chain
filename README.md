@@ -75,3 +75,7 @@ python -m solcx.install v0.5.6
 ```
 python compile.py
 ```
+## To compile ABI for Java
+```
+web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.keeper
+```
