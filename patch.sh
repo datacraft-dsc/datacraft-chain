@@ -14,7 +14,8 @@ if [ "${LOCAL_CONTRACTS}" = "true" ]; then
 	    sleep 5
 	    (( RETRY_COUNT=RETRY_COUNT+1 ))
 	done
-./node_modules/.bin/truffle migrate --reset --compile-all --artifacts
+./node_modules/.bin/openzeppelin link @openzeppelin/contracts-ethereum-package --push development --skip-compile
+./node_modules/.bin/truffle migrate --reset --compile-all --proxy
 touch "/usr/local/keeper-contracts/dex-ready"
 fi
 
