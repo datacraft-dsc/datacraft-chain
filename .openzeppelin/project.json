@@ -7,7 +7,7 @@
     "@openzeppelin/contracts-ethereum-package": "^2.2.3"
   },
   "name": "direct-purchase",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "compiler": {
     "manager": "truffle",
     "compilerSettings": {
