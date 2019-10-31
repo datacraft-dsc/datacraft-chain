@@ -5,7 +5,7 @@ from web3.contract import ConciseContract
 # web3.py instance
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 
-with open('token.json', 'r') as infile:
+with open('artifacts/OceanToken.spree.json', 'r') as infile:
     parce = json.loads(infile.read())
 abi = parce['abi']
 contract_address = parce['address']
@@ -13,6 +13,9 @@ token = w3.eth.contract(
     address=contract_address,
     abi=abi,
 )
+print('Address: {}'.format(
+    contract_address
+))
 
 concise_token = ConciseContract(token)
 
