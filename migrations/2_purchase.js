@@ -8,6 +8,7 @@ var ops = stdio.getopt({
     'artifacts': {key: 'a', description: 'Take ABI from artifacts'},
     'reset': {key: 'r', description: ''},
     'compile-all': {key: 'c', description: ''},
+    'network': {key: 'n', description: ''},
     'proxy': {key: 'p', description: 'Deploy upgradable proxy'}
 });
 
