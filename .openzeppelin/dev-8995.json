@@ -1,0 +1,15 @@
+{
+  "contracts": {
+  },
+  "solidityLibs": {},
+  "proxies": {},
+  "manifestVersion": "2.2",
+  "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": {
+      "package": "0xC91666BA2125C3B3cc7500B0b109198FD6394443",
+      "version": "2.3.0",
+      "customDeploy": true
+    }
+  },
+  "version": "0.0.1"
+}

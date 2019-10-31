@@ -4,7 +4,7 @@
     "DirectPurchase": "DirectPurchase"
   },
   "dependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.2.3"
+    "@openzeppelin/contracts-ethereum-package": "^2.3.0"
   },
   "name": "direct-purchase",
   "version": "0.0.1",

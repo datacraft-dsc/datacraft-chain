@@ -60,6 +60,13 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
      },
 
+    nile: {
+	provider: () => setupWallet('https://nile.dev-ocean.com', '0x675d7f22ed91224022df369e1d6f2438c17fbc4c7b6af9770b20c26ee35e1177'),
+	network_id: 0x2323, // 8995
+	gas: 6000000,
+	gasPrice: 10000
+        },
+
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
