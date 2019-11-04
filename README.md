@@ -14,6 +14,7 @@ sudo apt-get install solc
 sudo npm init -y
 sudo npm install --save-exact truffle
 sudo npm install --save-exact dotenv
+npm install web3-provider-engine
 truffle init
 ```
 ## Install Openzeppelin for upgradability support
@@ -52,6 +53,15 @@ export NODE_HOST="127.0.0.1"
 export NODE_PORT=8545
 export ARTIFACTS_FOLDER=artifacts
 truffle migrate --reset --compile-all --proxy
+```
+#### Upgradable proxy deployment to Nile network
+```
+# to prepare correct OceanToken artifacts file
+export NODE_HOST="https://nile.dev-ocean.com"
+export NODE_PORT=8545
+export ARTIFACTS_FOLDER=artifacts
+openzeppelin link @openzeppelin/contracts-ethereum-package --push nile --skip-compile 
+truffle migrate --network nile --reset --compile-all --proxy
 ```
 #### To recompile Solidity contract and upgrade proxy
 ```
