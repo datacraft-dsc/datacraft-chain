@@ -14,9 +14,12 @@ port = 8545
 [websockets]
 port = 8546
 interface = "0.0.0.0"
+hosts = ["all"]
+apis = ["web3", "eth", "net", "parity", "traces", "rpc", "personal", "parity_accounts", "signer", "parity_set"]
 
 [account]
 password = ["/parity/validator.pwd"]
+unlock = ["0x00bd138abd70e2f00903268f3db08f2d25677c9e"]
 
 [mining]
 author = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
@@ -24,10 +27,20 @@ engine_signer = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
 reseal_on_txs = "none"
 force_sealing = true
 reseal_min_period = 500
+# Minimum amount of Wei per GAS to be paid for a transaction to be accepted for mining. Overrides --usd-per-tx.
+min_gas_price = 0
 
 [misc]
 log_file = "/parity/log"
+# All servers will listen on external interfaces and will be remotely accessible. It's equivalent with setting the following: --[ws,jsonrpc,ipfs-api,secretstore,stratum,dapps,secretstore-http]-interface=all --*-hosts=all    This option is UNSAFE and should be used with great care!
+unsafe_expose = true
 
 [network]
 port = 30303
 discovery = true
+# Parity will sync by downloading latest state first. Node will be operational in couple minutes. - DISABLED
+warp = false
+# Specify node secret key (64-char hex or input to SHA3)
+node_key = "0xb3244c104fb56d28d3979f6cd14a8b5cf5b109171d293f4454c97c173a9f9374"
+# Network interfaces. Valid values are 'all', 'local' or the ip of the interface you want parity to listen to.
+interface = "all"
