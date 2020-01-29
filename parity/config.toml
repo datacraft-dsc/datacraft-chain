@@ -1,20 +1,30 @@
 [parity]
 chain = "/parity/chain.json"
+base_path = "/parity/base"
 
 [rpc]
 interface = "0.0.0.0"
 cors = ["all"]
 hosts = ["all"]
 apis = ["web3", "eth", "net", "parity", "traces", "rpc", "personal", "parity_accounts", "signer", "parity_set"]
+port = 8545
+
+[websockets]
+port = 8546
+interface = "0.0.0.0"
 
 [account]
 password = ["/parity/validator.pwd"]
 
 [mining]
+author = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
 engine_signer = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
 reseal_on_txs = "none"
 force_sealing = true
 reseal_min_period = 500
+
+[misc]
+log_file = "/parity/log"
 
 [network]
 port = 30303

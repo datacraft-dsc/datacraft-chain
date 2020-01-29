@@ -3,7 +3,7 @@
   "engine": {
     "authorityRound": {
       "params": {
-        "stepDuration": "1",
+        "stepDuration": "5",
         "validators": {
           "list": [
             "0x00bd138abd70e2f00903268f3db08f2d25677c9e",
@@ -22,7 +22,7 @@
     "accountStartNonce": "0x0",
     "maximumExtraDataSize": "0x20",
     "minGasLimit": "0x1388",
-    "networkID": "0x2324",
+    "networkID": "0x2325",
     "eip140Transition": "0x0",
     "eip211Transition": "0x0",
     "eip214Transition": "0x0",
