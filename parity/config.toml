@@ -29,6 +29,7 @@ force_sealing = true
 reseal_min_period = 500
 # Minimum amount of Wei per GAS to be paid for a transaction to be accepted for mining. Overrides --usd-per-tx.
 min_gas_price = 0
+usd_per_tx = "0"
 
 [misc]
 log_file = "/parity/log"
@@ -40,7 +41,5 @@ port = 30303
 discovery = true
 # Parity will sync by downloading latest state first. Node will be operational in couple minutes. - DISABLED
 warp = false
-# Specify node secret key (64-char hex or input to SHA3)
-node_key = "0xb3244c104fb56d28d3979f6cd14a8b5cf5b109171d293f4454c97c173a9f9374"
 # Network interfaces. Valid values are 'all', 'local' or the ip of the interface you want parity to listen to.
 interface = "all"
