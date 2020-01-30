@@ -19,11 +19,11 @@ apis = ["web3", "eth", "net", "parity", "traces", "rpc", "personal", "parity_acc
 
 [account]
 password = ["/parity/validator.pwd"]
-unlock = ["0x00bd138abd70e2f00903268f3db08f2d25677c9e"]
+unlock = ["0x79a1fd6f562a03204a16719acbae1a2ee0d696b4"]
 
 [mining]
-author = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
-engine_signer = "0x00bd138abd70e2f00903268f3db08f2d25677c9e"
+author = "0x79a1fd6f562a03204a16719acbae1a2ee0d696b4"
+engine_signer = "0x79a1fd6f562a03204a16719acbae1a2ee0d696b4"
 reseal_on_txs = "none"
 force_sealing = true
 reseal_min_period = 500
