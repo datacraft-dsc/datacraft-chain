@@ -89,3 +89,14 @@ python compile.py
 ```
 web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.keeper
 ```
+# Dex chain
+
+## Run parity node
+```
+./run_dex_chain.sh
+```
+## Add acount
+```
+docker run -it -v $PWD/parity:/parity parity/parity:v2.5.1 account new --config /parity/config.toml
+```
+New account credentials will be created in parity/keys/dex folder
