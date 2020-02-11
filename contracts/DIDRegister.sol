@@ -12,39 +12,29 @@ contract DIDRegistry is Initializable {
 
     struct DIDRegister {
         address owner;
-        bytes32 lastChecksum;
-        address lastUpdatedBy;
         uint256 blockNumberUpdated;
-        address[] providers;
     }
 
-    struct DIDRegisterList {
-        mapping(bytes32 => DIDRegister) didRegisters;
-        bytes32[] didRegisterIds;
-    }
+    mapping(bytes32 => DIDRegister) internal didRegisters;
+    bytes32[] internal didRegisterIds;
 
-    event DIDAttributeRegistered(
+    event DIDRegistered(
         bytes32 indexed _did,
         address indexed _owner,
-        bytes32 indexed _checksum,
         string _value,
-        address _lastUpdatedBy,
         uint256 _blockNumberUpdated
     );
 
-    DIDRegisterList internal didRegisterList;
-
-    function registerAttribute(
+    function registerDID(
         bytes32 _did,
-        bytes32 _checksum,
         string memory _value
     )
         public
         returns (uint size)
     {
         require(
-            didRegisterList.didRegisters[_did].owner == address(0x0) ||
-            didRegisterList.didRegisters[_did].owner == msg.sender,
+            didRegisters[_did].owner == address(0x0) ||
+            didRegisters[_did].owner == msg.sender,
             'Attributes must be registered by the DID owners.'
         );
 
@@ -53,31 +43,26 @@ contract DIDRegistry is Initializable {
             'Invalid value size'
         );
 
-        address didOwner = didRegisterList.didRegisters[_did].owner;
+        address didOwner = didRegisters[_did].owner;
 
         if (didOwner == address(0)) {
             didOwner = msg.sender;
-            didRegisterList.didRegisterIds.push(_did);
+            didRegisterIds.push(_did);
         }
 
-        didRegisterList.didRegisters[_did] = DIDRegister({
+        didRegisters[_did] = DIDRegister({
             owner: didOwner,
-            lastChecksum: _checksum,
-            lastUpdatedBy: msg.sender,
-            blockNumberUpdated: block.number,
-            providers: new address[](0)
+            blockNumberUpdated: block.number
         });
 
-        emit DIDAttributeRegistered(
+        emit DIDRegistered(
             _did,
-            didRegisterList.didRegisters[_did].owner,
-            _checksum,
+            didRegisters[_did].owner,
             _value,
-            msg.sender,
             block.number
         );
 
-        return didRegisterList.didRegisterIds.length;
+        return didRegisterIds.length;
     }
 
     function getBlockNumberUpdated(bytes32 _did)
@@ -85,6 +70,6 @@ contract DIDRegistry is Initializable {
         view
         returns (uint256 blockNumberUpdated)
     {
-        return didRegisterList.didRegisters[_did].blockNumberUpdated;
+        return didRegisters[_did].blockNumberUpdated;
     }
 }
