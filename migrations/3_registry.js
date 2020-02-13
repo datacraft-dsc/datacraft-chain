@@ -21,7 +21,7 @@ module.exports = async function(deployer, networkName, accounts) {
 
 	  await push(options);
 
-	  await create(Object.assign({ contractAlias: 'DIDRegistry', methodName: 'initialize' }, options));
+	  await create(Object.assign({ contractAlias: 'DIDRegistry', methodName: 'initialize', methodArgs:[] }, options));
 	}
 	deployer.then(async () => {
 	const { network, txParams } = await ConfigManager.initNetworkConfiguration({ network: networkName, from: accounts[0] });
@@ -46,6 +46,5 @@ module.exports = async function(deployer, networkName, accounts) {
 	}
 	let data = JSON.stringify(obj);
 	fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DIDRegistry.json', data);
-	console.log("Contract deployed with token address:", token_address);
 	});
 }

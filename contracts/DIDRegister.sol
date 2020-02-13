@@ -25,6 +25,12 @@ contract DIDRegistry is Initializable {
         uint256 _blockNumberUpdated
     );
 
+    function initialize()
+        public
+        initializer
+    {
+    }
+
     function registerDID(
         bytes32 _did,
         string memory _value
