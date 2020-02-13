@@ -25,6 +25,7 @@ npm install @openzeppelin/contracts-ethereum-package
 openzeppelin init
 openzeppelin link @openzeppelin/contracts-ethereum-package --push <network name> --skip-compile 
 openzeppelin add DirectPurchase
+openzeppelin add DIDRegistry
 ```
 ## To compile and deploy with Truffle
 #### Locally with compiling simulated Ocean Token on the empty network
