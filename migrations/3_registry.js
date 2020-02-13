@@ -9,6 +9,7 @@ var ops = stdio.getopt({
     'reset': {key: 'r', description: ''},
     'compile-all': {key: 'c', description: ''},
     'network': {key: 'n', description: ''},
+    'from': {key: 'f', description: 'Truffle migrate from'},
     'proxy': {key: 'p', description: 'Deploy upgradable proxy'}
 });
 
