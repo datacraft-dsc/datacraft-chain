@@ -1,11 +1,11 @@
 {
   "contracts": {
     "DirectPurchase": {
-      "address": "0x6D57566c6fdb546C6feb8F913bE3cb15A638b6AA",
-      "constructorCode": "608060405234801561001057600080fd5b5061041a806100206000396000f3fe",
-      "bodyBytecodeHash": "989a5cdeb683ecf0c2819749484fa79f0d9009ba99f1da1e4116d32e631fe537",
-      "localBytecodeHash": "3c6eace0e4869aec9ed7f0f8de5a37c53459e8bc3b603991cc1592448f7ee654",
-      "deployedBytecodeHash": "3c6eace0e4869aec9ed7f0f8de5a37c53459e8bc3b603991cc1592448f7ee654",
+      "address": "0xc42C9d4A098BD1AE81212Dd2C7172f5a64fDF25e",
+      "constructorCode": "608060405234801561001057600080fd5b50610453806100206000396000f3fe",
+      "bodyBytecodeHash": "8df35e65897cbff8f4d05a67ca153d50158db7bb7915e8e378c8dc8a19fdd909",
+      "localBytecodeHash": "e9d3c9b0234f5710af67c87a9d70c8908b99b95688f873f3468623af22e19be6",
+      "deployedBytecodeHash": "e9d3c9b0234f5710af67c87a9d70c8908b99b95688f873f3468623af22e19be6",
       "types": {
         "t_bool": {
           "id": "t_bool",
@@ -35,33 +35,152 @@
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initialized",
-          "astId": 1339,
+          "astId": 1537,
           "type": "t_bool",
-          "src": "757:24:13"
+          "src": "757:24:14"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "initializing",
-          "astId": 1341,
+          "astId": 1539,
           "type": "t_bool",
-          "src": "876:25:13"
+          "src": "876:25:14"
         },
         {
           "contract": "Initializable",
           "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
           "label": "______gap",
-          "astId": 1397,
+          "astId": 1595,
           "type": "t_array:50<t_uint256>",
-          "src": "1951:29:13"
+          "src": "1951:29:14"
         },
         {
           "contract": "DirectPurchase",
           "path": "contracts/DirectPurchase.sol",
           "label": "token",
-          "astId": 7,
+          "astId": 143,
           "type": "t_address",
-          "src": "570:12:0"
+          "src": "570:12:1"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": [],
+        "storageUncheckedVars": [],
+        "storageDiff": []
+      }
+    },
+    "DIDRegistry": {
+      "address": "0x7F41F7665394a39A1cb11c589A9DEE880cF48F76",
+      "constructorCode": "608060405234801561001057600080fd5b50610716806100206000396000f3fe",
+      "bodyBytecodeHash": "cc1477e4a32cefd8cff6b0f1e2ac1f75a99bf6bd373419cb5739e2cf78223ccf",
+      "localBytecodeHash": "516fd58c69db077cb32b1e1554d99016ddf30623ae47e2fe20a484395b7e2b4b",
+      "deployedBytecodeHash": "516fd58c69db077cb32b1e1554d99016ddf30623ae47e2fe20a484395b7e2b4b",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_struct<DIDRegistry.DIDRegister>": {
+          "id": "t_struct<DIDRegistry.DIDRegister>",
+          "kind": "struct",
+          "label": "DIDRegistry.DIDRegister",
+          "members": [
+            {
+              "label": "owner",
+              "astId": 6,
+              "type": "t_address",
+              "src": "300:13:0"
+            },
+            {
+              "label": "blockNumberUpdated",
+              "astId": 8,
+              "type": "t_uint256",
+              "src": "323:26:0"
+            }
+          ]
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_mapping<t_struct<DIDRegistry.DIDRegister>>": {
+          "id": "t_mapping<t_struct<DIDRegistry.DIDRegister>>",
+          "valueType": "t_struct<DIDRegistry.DIDRegister>",
+          "label": "mapping(key => DIDRegistry.DIDRegister)",
+          "kind": "mapping"
+        },
+        "t_bytes32": {
+          "id": "t_bytes32",
+          "kind": "elementary",
+          "label": "bytes32"
+        },
+        "t_array:dyn<t_bytes32>": {
+          "id": "t_array:dyn<t_bytes32>",
+          "valueType": "t_bytes32",
+          "length": "dyn",
+          "kind": "array",
+          "label": "bytes32[]"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 1537,
+          "type": "t_bool",
+          "src": "757:24:14"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 1539,
+          "type": "t_bool",
+          "src": "876:25:14"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 1595,
+          "type": "t_array:50<t_uint256>",
+          "src": "1951:29:14"
+        },
+        {
+          "contract": "DIDRegistry",
+          "path": "contracts/DIDRegister.sol",
+          "label": "didRegisters",
+          "astId": 13,
+          "type": "t_mapping<t_struct<DIDRegistry.DIDRegister>>",
+          "src": "362:53:0"
+        },
+        {
+          "contract": "DIDRegistry",
+          "path": "contracts/DIDRegister.sol",
+          "label": "didRegisterIds",
+          "astId": 16,
+          "type": "t_array:dyn<t_bytes32>",
+          "src": "421:33:0"
         }
       ],
       "warnings": {
@@ -80,6 +199,22 @@
         "address": "0x77D4EB6594CFB2c5F8374C09141f0f7a0397F41b",
         "version": "0.0.1",
         "implementation": "0x6D57566c6fdb546C6feb8F913bE3cb15A638b6AA",
+        "admin": "0xa563D196fFed26c435DDa62c3682738aa3EeACc5",
+        "kind": "Upgradeable"
+      },
+      {
+        "address": "0x3caD94c88fdFF9beC3E7620008B69A3EF9a47784",
+        "version": "0.0.1",
+        "implementation": "0xc42C9d4A098BD1AE81212Dd2C7172f5a64fDF25e",
+        "admin": "0xa563D196fFed26c435DDa62c3682738aa3EeACc5",
+        "kind": "Upgradeable"
+      }
+    ],
+    "direct-purchase/DIDRegistry": [
+      {
+        "address": "0x0640B8c602bd466FB2F5C5C155e94dE50655bc39",
+        "version": "0.0.1",
+        "implementation": "0x7F41F7665394a39A1cb11c589A9DEE880cF48F76",
         "admin": "0xa563D196fFed26c435DDa62c3682738aa3EeACc5",
         "kind": "Upgradeable"
       }

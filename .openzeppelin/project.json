@@ -1,7 +1,8 @@
 {
   "manifestVersion": "2.2",
   "contracts": {
-    "DirectPurchase": "DirectPurchase"
+    "DirectPurchase": "DirectPurchase",
+    "DIDRegistry": "DIDRegistry"
   },
   "dependencies": {
     "@openzeppelin/contracts-ethereum-package": "^2.4.0"
