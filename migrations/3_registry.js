@@ -46,6 +46,6 @@ module.exports = async function(deployer, networkName, accounts) {
 		"version": proxy.version
 	}
 	let data = JSON.stringify(obj);
-	fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DIDRegistry.json', data);
+	fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DIDRegistry.'+ networkName + '.json', data);
 	});
 }
