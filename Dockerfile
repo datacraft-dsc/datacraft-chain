@@ -19,7 +19,9 @@ COPY .openzeppelin/ /deployment/.openzeppelin/
 COPY truffle-config.js /deployment/truffle-config.js
 COPY patch.sh /deployment/patch.sh
 COPY contracts/DirectPurchase.sol /deployment/contracts/DirectPurchase.sol
+COPY contracts/DIDRegister.sol /deployment/contracts/DIDRegister.sol
 COPY contracts/Migrations.sol /deployment/contracts/Migrations.sol
 COPY migrations/2_purchase.js /deployment/migrations/1_purchase.js
+COPY migrations/3_registry.js /deployment/migrations/2_registry.js
 
 CMD ./patch.sh
