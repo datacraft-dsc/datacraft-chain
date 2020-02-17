@@ -88,7 +88,10 @@ python compile.py
 ```
 ## To compile ABI for Java
 ```
+curl -L https://get.web3j.io | sh
+source $HOME/.web3j/source.sh
 web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.keeper
+web3j truffle generate --javaTypes ./build/contracts/DIDRegistry.json -o src/main/java/ -p sg.dex.starfish.keeper
 ```
 # Dex chain
 
