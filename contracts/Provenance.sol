@@ -10,18 +10,12 @@ import "@openzeppelin/upgrades/contracts/Initializable.sol";
  */
 contract Provenance is Initializable {
 
-    struct AssetIDRegister {
-        address owner;
-        uint256 blockNumberUpdated;
-    }
-
-    mapping(bytes32 => AssetIDRegister) internal assetIdRegisters;
-    bytes32[] internal assetRegisterIds;
+    mapping(bytes32 => uint256) internal assetIdRegisters;
 
     event AssetRegistered(
         bytes32 indexed _assetID,
-        address indexed _owner,
-        uint256 _blockNumberUpdated
+        address indexed _user,
+        uint256 _timestamp
     );
 
     function initialize()
@@ -34,40 +28,22 @@ contract Provenance is Initializable {
         bytes32 _assetId
     )
         public
-        returns (uint size)
     {
-        require(
-            assetIdRegisters[_assetId].owner == address(0x0) ||
-            assetIdRegisters[_assetId].owner == msg.sender,
-            'Asset ID must be registered by the asset owners.'
-        );
-
-        address assetOwner = assetIdRegisters[_assetId].owner;
-
-        if (assetOwner == address(0)) {
-            assetOwner = msg.sender;
-            assetRegisterIds.push(_assetId);
-        }
-
-        assetIdRegisters[_assetId] = AssetIDRegister({
-            owner: assetOwner,
-            blockNumberUpdated: block.number
-        });
+        if(assetIdRegisters[_assetId] == 0) 
+	    assetIdRegisters[_assetId] = block.number;
 
         emit AssetRegistered(
             _assetId,
-            assetIdRegisters[_assetId].owner,
-            block.number
+            msg.sender,
+            now
         );
-
-        return assetRegisterIds.length;
     }
 
-    function getBlockNumberUpdated(bytes32 _assetId)
+    function getBlockNumber(bytes32 _assetId)
         public
         view
-        returns (uint256 blockNumberUpdated)
+        returns (uint256)
     {
-        return assetIdRegisters[_assetId].blockNumberUpdated;
+        return assetIdRegisters[_assetId];
     }
 }
