@@ -15,7 +15,7 @@ contract Provenance is Initializable {
     event AssetRegistered(
         bytes32 indexed _assetID,
         address indexed _user,
-        uint256 _timestamp
+        uint _timestamp
     );
 
     function initialize()
