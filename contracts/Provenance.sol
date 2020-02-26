@@ -24,7 +24,7 @@ contract Provenance is Initializable {
     {
     }
 
-    function registerDID(
+    function registerAsset(
         bytes32 _assetId
     )
         public
