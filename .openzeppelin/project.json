@@ -2,6 +2,7 @@
   "manifestVersion": "2.2",
   "contracts": {
     "DirectPurchase": "DirectPurchase",
+    "Provenance": "Provenance",
     "DIDRegistry": "DIDRegistry"
   },
   "dependencies": {

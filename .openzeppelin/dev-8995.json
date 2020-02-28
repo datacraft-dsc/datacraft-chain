@@ -190,6 +190,79 @@
         "hasInitialValuesInDeclarations": false,
         "uninitializedBaseContracts": []
       }
+    },
+    "Provenance": {
+      "address": "0x6033284922BA26894DaC1e8f121953cf46Ba3A4D",
+      "constructorCode": "608060405234801561001057600080fd5b506102eb806100206000396000f3fe",
+      "bodyBytecodeHash": "5f8e122e909a76fe559a23c05b3c4afe9d7471182865ff2ce8d9dd0251acdc4f",
+      "localBytecodeHash": "a22eea2215307c5e63a230bad27d4e369d4e3c10393869c93c79e260a58329b7",
+      "deployedBytecodeHash": "a22eea2215307c5e63a230bad27d4e369d4e3c10393869c93c79e260a58329b7",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 1599,
+          "type": "t_bool",
+          "src": "757:24:15"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 1601,
+          "type": "t_bool",
+          "src": "876:25:15"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 1657,
+          "type": "t_array:50<t_uint256>",
+          "src": "1951:29:15"
+        },
+        {
+          "contract": "Provenance",
+          "path": "contracts/Provenance.sol",
+          "label": "assetIdRegisters",
+          "astId": 324,
+          "type": "t_mapping<t_uint256>",
+          "src": "268:53:4"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
     }
   },
   "solidityLibs": {},
@@ -215,6 +288,15 @@
         "address": "0x0640B8c602bd466FB2F5C5C155e94dE50655bc39",
         "version": "0.0.1",
         "implementation": "0x7F41F7665394a39A1cb11c589A9DEE880cF48F76",
+        "admin": "0xa563D196fFed26c435DDa62c3682738aa3EeACc5",
+        "kind": "Upgradeable"
+      }
+    ],
+    "direct-purchase/Provenance": [
+      {
+        "address": "0x75a7fb33aE06d8ea3Dc9753e591e1e9ad2141D06",
+        "version": "0.0.1",
+        "implementation": "0x6033284922BA26894DaC1e8f121953cf46Ba3A4D",
         "admin": "0xa563D196fFed26c435DDa62c3682738aa3EeACc5",
         "kind": "Upgradeable"
       }
