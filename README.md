@@ -90,9 +90,9 @@ python compile.py
 ```
 curl -L https://get.web3j.io | sh
 source $HOME/.web3j/source.sh
-web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.dexchain
-web3j truffle generate --javaTypes ./build/contracts/DIDRegistry.json -o src/main/java/ -p sg.dex.starfish.dexchain
-web3j truffle generate --javaTypes ./build/contracts/Provenance.json -o src/main/java/ -p sg.dex.starfish.dexchain
+web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
+web3j truffle generate --javaTypes ./build/contracts/DIDRegistry.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
+web3j truffle generate --javaTypes ./build/contracts/Provenance.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
 ```
 # Dex chain
 
