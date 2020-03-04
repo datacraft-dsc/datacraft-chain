@@ -22,7 +22,8 @@ contract DIDRegistry is Initializable {
         bytes32 indexed _did,
         address indexed _owner,
         string _value,
-        uint256 _blockNumberUpdated
+        uint256 _blockNumberUpdated,
+        uint _timestamp
     );
 
     function initialize()
@@ -65,7 +66,8 @@ contract DIDRegistry is Initializable {
             _did,
             didRegisters[_did].owner,
             _value,
-            block.number
+            block.number,
+	    now
         );
 
         return didRegisterIds.length;
