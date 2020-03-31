@@ -36,7 +36,7 @@ export ARTIFACTS_FOLDER=artifacts
 truffle compile
 trufle migrate
 # or to re-build from scratch:
-truffle migrate --reset --compile-all
+truffle migrate --reset --compile-all --network spree
 ```
 #### Locally with reusing existing Ocean Token on running barge
 ```
@@ -46,14 +46,14 @@ export ARTIFACTS_FOLDER=artifacts
 truffle compile
 trufle migrate --artifacts
 # or to re-build from scratch:
-truffle migrate --reset --compile-all --artifacts
+truffle migrate --reset --compile-all --artifacts --network spree
 ```
 #### Locally with reusing existing Ocean Token on running barge with upgradable proxy deployment
 ```
 export NODE_HOST="127.0.0.1"
 export NODE_PORT=8545
 export ARTIFACTS_FOLDER=artifacts
-truffle migrate --reset --compile-all --proxy
+truffle migrate --reset --compile-all --proxy --network spree
 ```
 #### Upgradable proxy deployment to Nile network
 ```
