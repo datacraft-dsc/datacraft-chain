@@ -39,7 +39,7 @@ module.exports = async function(deployer, networkName, accounts) {
 	const registry_contract = Contracts.getFromLocal('DIDRegistry');
 
 	let obj = {
-		"name": 'DirectPurchase',
+		"name": 'DIDRegistry',
 		"abi": registry_contract.schema.abi,
 		"address": proxy.address,
 		"implementation": proxy.implementation,
