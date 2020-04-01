@@ -12,9 +12,9 @@ var ops = stdio.getopt({
     'proxy': {key: 'p', description: 'Deploy upgradable proxy'}
 });
 
-function getTokenAddress() {
+function getTokenAddress(networkName) {
 	const path = require("path");
-	var obj = JSON.parse(fs.readFileSync(process.env.ARTIFACTS_FOLDER+'/OceanToken.spree.json'));
+	var obj = JSON.parse(fs.readFileSync(process.env.ARTIFACTS_FOLDER+'/OceanToken.'+ networkName + '.json'));
 	return obj.address;
 }
 
@@ -22,7 +22,7 @@ module.exports = async function(deployer, networkName, accounts) {
 	if(ops.proxy) {
 		const { scripts, ConfigManager } = require('@openzeppelin/cli');
 		const { add, push, create } = scripts;
-		token_address = getTokenAddress();
+		token_address = getTokenAddress(networkName);
 		async function installProxy(options) {
 		  add({ contractsData: [{ name: 'DirectPurchase', alias: 'DirectPurchase' }] });
 
@@ -52,14 +52,14 @@ module.exports = async function(deployer, networkName, accounts) {
 			"version": proxy.version
 		}
 		let data = JSON.stringify(obj);
-		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.spree.json', data);
+		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.'+ networkName + '.json', data);
 		console.log("Contract deployed with token address:", token_address);
   		});
 	} else {
 
 	if(ops.artifacts) {
             pipeline = deployer.then(() => {
-		token_address = getTokenAddress();
+		token_address = getTokenAddress(networkName);
 	    });
 	} else {
 	    const Token = artifacts.require("OceanToken");
@@ -85,7 +85,7 @@ module.exports = async function(deployer, networkName, accounts) {
 			"version": "v0.10.3"
 		}
 		let data = JSON.stringify(obj);
-		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.spree.json', data);
+		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/DirectPurchase.'+ networkName + '.json', data);
 	});
 	}
 }

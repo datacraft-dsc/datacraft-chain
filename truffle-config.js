@@ -54,7 +54,7 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-     development: {
+     spree: {
       host: process.env.NODE_HOST, // Localhost (default: none)
       port: process.env.NODE_PORT, // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
