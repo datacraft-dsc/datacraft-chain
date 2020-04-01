@@ -1,0 +1,16 @@
+version: '1'
+services:
+  direct_purchase:
+    image: dexcompany/contracts:${CONTRACTS_VERSION}
+    networks:
+      backend:
+        ipv4_address: 172.15.0.31
+    depends_on:
+      - chain-node
+    environment:
+      NODE_HOST: ${CHAIN_RPC_HOST}
+      NODE_PORT: ${CHAIN_RPC_PORT}
+      LOCAL_CONTRACTS: ${DEPLOY_CONTRACTS}
+      ARTIFACTS_FOLDER: '/usr/local/keeper-contracts'
+    volumes:
+      - ${ARTIFACTS_FOLDER}:/usr/local/keeper-contracts
