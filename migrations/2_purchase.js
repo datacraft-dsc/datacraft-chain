@@ -67,7 +67,18 @@ module.exports = async function(deployer, networkName, accounts) {
 	    pipeline = deployer.deploy(Token)
 	    // Wait until the storage contract is deployed
 	    .then(() => Token.deployed())
-	    .then(() => token_address = Token.address);
+	    .then(() => token_address = Token.address)
+	    .then(() => {
+		let obj = {
+		"name": 'Token',
+		"abi": Token.abi,
+		"address": token_address,
+		"implementation": token_address,
+		"version": "v0.10.3"
+		}
+		let data = JSON.stringify(obj);
+		fs.writeFileSync(process.env.ARTIFACTS_FOLDER+'/Token.'+ networkName + '.json', data);
+	    });
 	}
 
         // Deploy the Purchase contract, while passing the address of the
