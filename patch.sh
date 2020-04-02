@@ -15,7 +15,7 @@ if [ "${LOCAL_CONTRACTS}" = "true" ]; then
 	    (( RETRY_COUNT=RETRY_COUNT+1 ))
 	done
 ./node_modules/.bin/openzeppelin push --network spree -d --skip-compile
-./node_modules/.bin/truffle migrate --reset --compile-all --proxy --network spree
+./node_modules/.bin/truffle migrate --reset --compile-all --network spree
 touch "/usr/local/keeper-contracts/dex-ready"
 
 fi
