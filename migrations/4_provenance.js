@@ -31,7 +31,10 @@ module.exports = async function(deployer, networkName, accounts) {
 	const networkId = await web3.eth.net.getId();
 	obj_json = JSON.parse(fs.readFileSync('.openzeppelin/'+'dev-' + networkId + '.json'));
 
-	proxy_name = Object.keys(obj_json.proxies)[2];
+	let indexProxy = 2;
+	if(!ops.proxy)
+	  indexProxy--;
+	proxy_name = Object.keys(obj_json.proxies)[indexProxy];
 	proxies_number = obj_json.proxies[proxy_name].length;
 	proxy = obj_json.proxies[proxy_name][proxies_number - 1];
 	
