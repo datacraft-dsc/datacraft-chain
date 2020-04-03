@@ -15,7 +15,7 @@ import "@openzeppelin/upgrades/contracts/Initializable.sol";
  * @dev Implementation of the Ocean Token.
  *      Ocean Token is ERC20 token
  */
-contract OceanToken is Initializable, Ownable, ERC20Detailed, ERC20Capped {
+contract Token is Initializable, Ownable, ERC20Detailed, ERC20Capped {
 
     using SafeMath for uint256;
 
@@ -27,7 +27,7 @@ contract OceanToken is Initializable, Ownable, ERC20Detailed, ERC20Capped {
         uint256 CAP = 1410000000;
         uint256 TOTALSUPPLY = CAP.mul(10 ** 18);
 
-        ERC20Detailed.initialize('OceanToken', 'OCEAN', 18);
+        ERC20Detailed.initialize('Token', 'OCEAN', 18);
         ERC20Capped.initialize(TOTALSUPPLY, msg.sender);
 	Ownable.initialize(msg.sender);
     }

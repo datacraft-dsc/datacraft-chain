@@ -25,5 +25,6 @@ COPY migrations/2_purchase.js /deployment/migrations/1_purchase.js
 COPY migrations/3_registry.js /deployment/migrations/2_registry.js
 COPY migrations/4_provenance.js /deployment/migrations/3_provenance.js
 COPY contracts/Provenance.sol /deployment/contracts/Provenance.sol
+COPY contracts/Token.sol /deployment/contracts/Token.sol
 
 CMD ./patch.sh

@@ -62,7 +62,7 @@ module.exports = async function(deployer, networkName, accounts) {
 		token_address = getTokenAddress(networkName);
 	    });
 	} else {
-	    const Token = artifacts.require("OceanToken");
+	    const Token = artifacts.require("Token");
 	    // Deploy the Token contract
 	    pipeline = deployer.deploy(Token)
 	    // Wait until the storage contract is deployed
