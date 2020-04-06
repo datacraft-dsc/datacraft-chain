@@ -64,7 +64,8 @@ module.exports = async function(deployer, networkName, accounts) {
 	} else {
 	    const Token = artifacts.require("Token");
 	    // Deploy the Token contract
-	    pipeline = deployer.deploy(Token)
+	    // This is hardcoded minter account
+	    pipeline = deployer.deploy(Token, '0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e')
 	    // Wait until the storage contract is deployed
 	    .then(() => Token.deployed())
 	    .then(() => token_address = Token.address)
