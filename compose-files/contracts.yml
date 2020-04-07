@@ -4,7 +4,7 @@ services:
     image: dexcompany/contracts:${CONTRACTS_VERSION}
     networks:
       backend:
-        ipv4_address: 172.15.0.31
+        ipv4_address: 172.33.0.31
     depends_on:
       - chain-node
     environment:
