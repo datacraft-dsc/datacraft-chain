@@ -10,7 +10,8 @@ services:
     environment:
       NODE_HOST: ${CHAIN_RPC_HOST}
       NODE_PORT: ${CHAIN_RPC_PORT}
-      LOCAL_CONTRACTS: ${DEPLOY_CONTRACTS}
+      DEPLOY_DEX_CONTRACTS: ${DEPLOY_CONTRACTS}
       ARTIFACTS_FOLDER: '/usr/local/keeper-contracts'
+      WAIT_FOR_OCEAN_CONTRACTS: 'false'
     volumes:
       - ${ARTIFACTS_FOLDER}:/usr/local/keeper-contracts
