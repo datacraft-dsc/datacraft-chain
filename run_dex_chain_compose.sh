@@ -3,6 +3,7 @@ export CONTRACTS_VERSION=v0.1
 export DEPLOY_CONTRACTS="false"
 export CHAIN_RPC_HOST="chain-node"
 export CHAIN_RPC_PORT="8545"
-export ARTIFACTS_FOLDER="./artifacts"
+export ARTIFACTS_FOLDER="${PWD}/artifacts"
 
-docker-compose --project-name=dex -f ./compose-files/contracts.yml -f ./compose-files/chain.yml up --remove-orphans
+
+docker-compose --project-name=dex -f ./compose-files/contracts.yml -f ./compose-files/network.yml -f ./compose-files/chain.yml up --remove-orphans
