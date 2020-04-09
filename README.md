@@ -74,6 +74,10 @@ openzeppelin upgrade
 docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts folder>:/usr/local/keeper-contracts --env NODE_HOST="keeper-node" --env NODE_PORT=8545 --env ARTIFACTS_FOLDER=/usr/local/keeper-contracts direct-purchase
 # To observe newly generated DirectPurchase.spree.json artifact file in your host artifacts folder
 ```
+#### Using docker container on running dex chain
+```
+docker run --net=dex_backend -i -t -v <full path to your host artifacts folder>:/usr/local/keeper-contracts --env NODE_HOST="chain-node" --env NODE_PORT=8545 --env ARTIFACTS_FOLDER=/usr/local/keeper-contracts --env LOCAL_CONTRACTS="true" dexcompany/contracts:v0.1
+```
 ## Install dependecies for Python
 ```
 virtualenv -p /usr/bin/python3.6 venv
