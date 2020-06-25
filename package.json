@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "clean": "rm -rf build",
+    "build": "truffle compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,13 +22,15 @@
     "url": "https://github.com/DEX-Company/direct-purchase/issues"
   },
   "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
-  "dependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
-    "@openzeppelin/upgrades": "^2.5.3",
-    "dotenv": "^8.1.0",
+  "devDependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.5.0",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "dotenv": "^8.2.0",
     "openzeppelin-solidity": "2.3.0",
     "stdio": "0.2.7",
     "truffle": "5.0.30",
-    "truffle-hdwallet-provider": "^1.0.17"
-  }
+    "truffle-hdwallet-provider": "^1.0.17",
+    "minimist": ">=0.2.1"
+  },
+  "dependencies": {}
 }
