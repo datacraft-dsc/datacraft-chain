@@ -1,26 +1,29 @@
-pragma solidity 0.5.6;
+pragma solidity ^0.5.0;
 // Copyright BigchainDB GmbH and Ocean Protocol contributors
 // SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
 // Code is Apache-2.0 and docs are CC-BY-4.0
 
+// The original file is from here: https://github.com/oceanprotocol/keeper-contracts/blob/develop/contracts/OceanToken.sol
+// This is has now been changed for Dex
+
 import '@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Capped.sol';
 import '@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Detailed.sol';
 import '@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol';
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
+import '@openzeppelin/upgrades/contracts/Initializable.sol';
 
 /**
- * @title Ocean Protocol ERC20 Token Contract
- * @author Ocean Protocol Team
+ * @title Dex ERC20 Token Contract
+ * @author Ocean Protocol Team, Dex
  *
- * @dev Implementation of the Ocean Token.
- *      Ocean Token is ERC20 token
+ * @dev Implementation of the Dex Token.
+ *      Dex Token is ERC20 token
  */
-contract Token is Initializable, Ownable, ERC20Detailed, ERC20Capped {
+contract DexToken is Initializable, Ownable, ERC20Detailed, ERC20Capped {
 
     using SafeMath for uint256;
 
     function initialize(
-	address _initialMinter
+        address _initialMinter
     )
         public
         initializer
@@ -30,8 +33,7 @@ contract Token is Initializable, Ownable, ERC20Detailed, ERC20Capped {
 
         ERC20Detailed.initialize('Token', 'DEX', 18);
         ERC20Capped.initialize(TOTALSUPPLY, msg.sender);
-	Ownable.initialize(msg.sender);
-
-	_addMinter(_initialMinter);
+        Ownable.initialize(msg.sender);
+        _addMinter(_initialMinter);
     }
 }

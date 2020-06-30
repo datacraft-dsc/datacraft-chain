@@ -24,12 +24,10 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-const dotenv = require('dotenv');
 const HDWalletProvider = require('truffle-hdwallet-provider')
-dotenv.config();
 
 let hdWalletProvider;
-const setupWallet = (url, privateKey) => {
+const setupWallet = (privateKey, url) => {
     if (!hdWalletProvider) {
         hdWalletProvider = new HDWalletProvider(privateKey, url)
     }
@@ -47,6 +45,7 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
 
+  // contracts_build_directory: './artifacts',
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
@@ -54,18 +53,21 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-     spree: {
+
+    development: {
       host: process.env.NODE_HOST, // Localhost (default: none)
       port: process.env.NODE_PORT, // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-     },
-
-    nile: {
-	provider: () => setupWallet(process.env.NODE_HOST, '0x675d7f22ed91224022df369e1d6f2438c17fbc4c7b6af9770b20c26ee35e1177'),
-	network_id: 0x2323, // 8995
-	gas: 6000000,
-	gasPrice: 10000
-        },
+      network_id: "*",                // Only development network (default: none)
+    },
+    local: {
+        // provider: () => setupWallet('private-key', 'http://localhost:8545'),
+        protocol: 'http',
+        host: 'localhost',
+        port: 8545,
+        gas: 600000000,
+        gasPrice: 10000,
+        network_id: 1337,
+    },
 
     // Another network with more advanced options...
     // advanced: {
@@ -104,7 +106,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-       version: "0.5.6",    // Fetch exact version from solc-bin (default: truffle's version)
+       version: "0.5.16",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

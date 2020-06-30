@@ -1,12 +1,12 @@
-pragma solidity 0.5.6;
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
+pragma solidity ^0.5.0;
+import '@openzeppelin/upgrades/contracts/Initializable.sol';
 
 /**
  * @title Dex Provenance Contract
  * @author Ilia Bukalov (ilyabukalov@gmail.com)
  *
  * @dev Implementation of the Provenance.
- * 
+ *
  */
 contract Provenance is Initializable {
 
@@ -29,7 +29,7 @@ contract Provenance is Initializable {
     )
         public
     {
-        if(assetIdRegisters[_assetId] == 0) 
+        if(assetIdRegisters[_assetId] == 0)
 	    assetIdRegisters[_assetId] = block.number;
 
         emit AssetRegistered(
