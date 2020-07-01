@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "bin": {
+    "dex-chain": "src/dex_chain.js"
+  },
   "scripts": {
     "clean": "rm -rf build",
     "compile": "npm run compile:truffle",

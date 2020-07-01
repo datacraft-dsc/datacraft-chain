@@ -40,7 +40,7 @@ if [ $IS_INSTALL ]; then
     sleep 4
     echo "Installing local contracts"
     npm run install:local
-    echo "Local contract install completed"
+    echo "Completed local contracts installation"
 fi
 echo "Local block chain network running..."
 wait
