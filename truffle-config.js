@@ -67,6 +67,7 @@ module.exports = {
         gas: 600000000,
         gasPrice: 10000,
         network_id: 1337,
+        // address: "0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee",
     },
 
     // Another network with more advanced options...
