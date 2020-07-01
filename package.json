@@ -1,14 +1,20 @@
 {
-  "name": "direct-purchase",
-  "version": "1.0.0",
+  "name": "dex-chain",
+  "version": "0.1.0",
   "description": "# for Ubuntu sudo add-apt-repository ppa:ethereum/ethereum",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
+  "bin": {
+    "dex-chain": "src/dex_chain.js"
+  },
   "scripts": {
     "clean": "rm -rf build",
-    "build": "truffle compile",
+    "compile": "npm run compile:truffle",
+    "compile:truffle": "truffle compile",
+    "compile:oz": "npx oz compile",
+    "install:local": "openzeppelin push --network local --deploy-dependencies --skip-compile --no-interactive && truffle migrate --network local --reset",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,16 +29,13 @@
   },
   "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
   "devDependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts": "^3.1.0",
     "@openzeppelin/contracts-ethereum-package": "^2.5.0",
     "@openzeppelin/upgrades": "^2.8.0",
-    "dotenv": "^8.2.0",
-    "openzeppelin-solidity": "2.3.0",
-    "stdio": "0.2.7",
+    "minimist": ">=0.2.1",
     "truffle": "5.0.30",
-    "truffle-hdwallet-provider": "^1.0.17",
-    "minimist": ">=0.2.1"
+    "truffle-hdwallet-provider": "^1.0.17"
   },
-  "dependencies": {
-    "@openzeppelin/cli": "^2.8.2"
-  }
+  "dependencies": {}
 }

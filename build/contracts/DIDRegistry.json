@@ -6,26 +6,31 @@
       "inputs": [
         {
           "indexed": true,
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
           "indexed": true,
+          "internalType": "address",
           "name": "_owner",
           "type": "address"
         },
         {
           "indexed": false,
+          "internalType": "string",
           "name": "_value",
           "type": "string"
         },
         {
           "indexed": false,
+          "internalType": "uint256",
           "name": "_blockNumberUpdated",
           "type": "uint256"
         },
         {
           "indexed": false,
+          "internalType": "uint256",
           "name": "_timestamp",
           "type": "uint256"
         }
@@ -46,10 +51,12 @@
       "constant": false,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
+          "internalType": "string",
           "name": "_value",
           "type": "string"
         }
@@ -57,6 +64,7 @@
       "name": "registerDID",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "size",
           "type": "uint256"
         }
@@ -69,6 +77,7 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         }
@@ -76,6 +85,7 @@
       "name": "getBlockNumberUpdated",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "blockNumberUpdated",
           "type": "uint256"
         }
@@ -85,12 +95,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.6+commit.b259423e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_did\",\"type\":\"bytes32\"},{\"name\":\"_value\",\"type\":\"string\"}],\"name\":\"registerDID\",\"outputs\":[{\"name\":\"size\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_did\",\"type\":\"bytes32\"}],\"name\":\"getBlockNumberUpdated\",\"outputs\":[{\"name\":\"blockNumberUpdated\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"_did\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":false,\"name\":\"_blockNumberUpdated\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"_timestamp\",\"type\":\"uint256\"}],\"name\":\"DIDRegistered\",\"type\":\"event\"}],\"devdoc\":{\"author\":\"Ilia Bukalov (ilyabukalov@gmail.com)\",\"details\":\"Implementation of the DIDRegistry.  \",\"methods\":{},\"title\":\"Dex DIDRegistry Contract\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol\":\"DIDRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol\":{\"keccak256\":\"0xd380bd91d460c5c2b37b42aa0d27b935da4ace968bbfb60eb1c99dc195c3d6d5\",\"urls\":[\"bzzr://133559841d16855a819265eb2ca1166df0afb93ba362c825ad15560e47f7c3e7\"]},\"@openzeppelin/upgrades/contracts/Initializable.sol\":{\"keccak256\":\"0x9bfec92e36234ecc99b5d37230acb6cd1f99560233753162204104a4897e8721\",\"urls\":[\"bzzr://f75d88b16fe25a9e19b3512691c496e2bb6d8451bc9a636196c4e17ca9b40201\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610707806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063331daa99146100465780638129fc1c1461011f578063bbc1dede14610129575b600080fd5b6101096004803603604081101561005c57600080fd5b81019080803590602001909291908035906020019064010000000081111561008357600080fd5b82018360208201111561009557600080fd5b803590602001918460018302840111640100000000831117156100b757600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061016b565b6040518082815260200191505060405180910390f35b610127610547565b005b6101556004803603602081101561013f57600080fd5b8101908080359060200190929190505050610646565b6040518082815260200191505060405180910390f35b60008073ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16148061023e57503373ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16145b610293576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603081526020018061067e6030913960400191505060405180910390fd5b6108008251111561030c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260128152602001807f496e76616c69642076616c75652073697a65000000000000000000000000000081525060200191505060405180910390fd5b60006033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103ac5733905060348490806001815401808255809150509060018203906000526020600020016000909192909190915055505b60405180604001604052808273ffffffffffffffffffffffffffffffffffffffff168152602001438152506033600086815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050506033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16847fd249d46c05fa2d9983ee4d99bf117a4072ab968cbd1cd64f6aac599e928282b38543426040518080602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156104fc5780820151818401526020810190506104e1565b50505050905090810190601f1680156105295780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a360348054905091505092915050565b600060019054906101000a900460ff16806105665750610565610666565b5b8061057d57506000809054906101000a900460ff16155b6105d2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602e8152602001806106ae602e913960400191505060405180910390fd5b60008060019054906101000a900460ff161590508015610622576001600060016101000a81548160ff02191690831515021790555060016000806101000a81548160ff0219169083151502179055505b80156106435760008060016101000a81548160ff0219169083151502179055505b50565b600060336000838152602001908152602001600020600101549050919050565b6000803090506000813b905060008114925050509056fe41747472696275746573206d75737420626520726567697374657265642062792074686520444944206f776e6572732e436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a165627a7a72305820271dfd2371966efc81c3089817f4003e9001d25f32f88477b1c4f091861e20070029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063331daa99146100465780638129fc1c1461011f578063bbc1dede14610129575b600080fd5b6101096004803603604081101561005c57600080fd5b81019080803590602001909291908035906020019064010000000081111561008357600080fd5b82018360208201111561009557600080fd5b803590602001918460018302840111640100000000831117156100b757600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061016b565b6040518082815260200191505060405180910390f35b610127610547565b005b6101556004803603602081101561013f57600080fd5b8101908080359060200190929190505050610646565b6040518082815260200191505060405180910390f35b60008073ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16148061023e57503373ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16145b610293576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603081526020018061067e6030913960400191505060405180910390fd5b6108008251111561030c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260128152602001807f496e76616c69642076616c75652073697a65000000000000000000000000000081525060200191505060405180910390fd5b60006033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103ac5733905060348490806001815401808255809150509060018203906000526020600020016000909192909190915055505b60405180604001604052808273ffffffffffffffffffffffffffffffffffffffff168152602001438152506033600086815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050506033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16847fd249d46c05fa2d9983ee4d99bf117a4072ab968cbd1cd64f6aac599e928282b38543426040518080602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156104fc5780820151818401526020810190506104e1565b50505050905090810190601f1680156105295780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a360348054905091505092915050565b600060019054906101000a900460ff16806105665750610565610666565b5b8061057d57506000809054906101000a900460ff16155b6105d2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602e8152602001806106ae602e913960400191505060405180910390fd5b60008060019054906101000a900460ff161590508015610622576001600060016101000a81548160ff02191690831515021790555060016000806101000a81548160ff0219169083151502179055505b80156106435760008060016101000a81548160ff0219169083151502179055505b50565b600060336000838152602001908152602001600020600101549050919050565b6000803090506000813b905060008114925050509056fe41747472696275746573206d75737420626520726567697374657265642062792074686520444944206f776e6572732e436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a165627a7a72305820271dfd2371966efc81c3089817f4003e9001d25f32f88477b1c4f091861e20070029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"_did\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_value\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_blockNumberUpdated\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\"}],\"name\":\"DIDRegistered\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_did\",\"type\":\"bytes32\"}],\"name\":\"getBlockNumberUpdated\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumberUpdated\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_did\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"_value\",\"type\":\"string\"}],\"name\":\"registerDID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"size\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ilia Bukalov (ilyabukalov@gmail.com)\",\"details\":\"Implementation of the DIDRegistry. \",\"methods\":{},\"title\":\"Dex DIDRegistry Contract\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol\":\"DIDRegistry\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol\":{\"keccak256\":\"0xb78018ba602f918b36ec1852f1ecc39d873d6e0a8e992026e98f051d15c91e0f\",\"urls\":[\"bzz-raw://c37329ddf5d51858db914beeb506344c63d5e3b2e5adc885ece6d6a1f863e442\",\"dweb:/ipfs/QmeadjnesbgRpYN5qRFADZ3DbLFVXufFLrbubuuycEStp9\"]},\"@openzeppelin/upgrades/contracts/Initializable.sol\":{\"keccak256\":\"0x9bfec92e36234ecc99b5d37230acb6cd1f99560233753162204104a4897e8721\",\"urls\":[\"bzz-raw://5cf7c208583d4d046d75bd99f5507412ab01cce9dd9f802ce9768a416d93ea2f\",\"dweb:/ipfs/QmcQS1BBMPpVEkXP3qzwSjxHNrqDek8YeR7xbVWDC9ApC7\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610710806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063331daa99146100465780638129fc1c1461011f578063bbc1dede14610129575b600080fd5b6101096004803603604081101561005c57600080fd5b81019080803590602001909291908035906020019064010000000081111561008357600080fd5b82018360208201111561009557600080fd5b803590602001918460018302840111640100000000831117156100b757600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061016b565b6040518082815260200191505060405180910390f35b610127610547565b005b6101556004803603602081101561013f57600080fd5b8101908080359060200190929190505050610646565b6040518082815260200191505060405180910390f35b60008073ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16148061023e57503373ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16145b610293576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603081526020018061067e6030913960400191505060405180910390fd5b6108008251111561030c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260128152602001807f496e76616c69642076616c75652073697a65000000000000000000000000000081525060200191505060405180910390fd5b60006033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103ac5733905060348490806001815401808255809150509060018203906000526020600020016000909192909190915055505b60405180604001604052808273ffffffffffffffffffffffffffffffffffffffff168152602001438152506033600086815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050506033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16847fd249d46c05fa2d9983ee4d99bf117a4072ab968cbd1cd64f6aac599e928282b38543426040518080602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156104fc5780820151818401526020810190506104e1565b50505050905090810190601f1680156105295780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a360348054905091505092915050565b600060019054906101000a900460ff16806105665750610565610666565b5b8061057d57506000809054906101000a900460ff16155b6105d2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602e8152602001806106ae602e913960400191505060405180910390fd5b60008060019054906101000a900460ff161590508015610622576001600060016101000a81548160ff02191690831515021790555060016000806101000a81548160ff0219169083151502179055505b80156106435760008060016101000a81548160ff0219169083151502179055505b50565b600060336000838152602001908152602001600020600101549050919050565b6000803090506000813b905060008114925050509056fe41747472696275746573206d75737420626520726567697374657265642062792074686520444944206f776e6572732e436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a265627a7a723158204f1e00ce4b557c20c487be31c1b1131ba0d8dc2c4ac24b781968749a75dfd74b64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063331daa99146100465780638129fc1c1461011f578063bbc1dede14610129575b600080fd5b6101096004803603604081101561005c57600080fd5b81019080803590602001909291908035906020019064010000000081111561008357600080fd5b82018360208201111561009557600080fd5b803590602001918460018302840111640100000000831117156100b757600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050919291929050505061016b565b6040518082815260200191505060405180910390f35b610127610547565b005b6101556004803603602081101561013f57600080fd5b8101908080359060200190929190505050610646565b6040518082815260200191505060405180910390f35b60008073ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16148061023e57503373ffffffffffffffffffffffffffffffffffffffff166033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16145b610293576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603081526020018061067e6030913960400191505060405180910390fd5b6108008251111561030c576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260128152602001807f496e76616c69642076616c75652073697a65000000000000000000000000000081525060200191505060405180910390fd5b60006033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103ac5733905060348490806001815401808255809150509060018203906000526020600020016000909192909190915055505b60405180604001604052808273ffffffffffffffffffffffffffffffffffffffff168152602001438152506033600086815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101559050506033600085815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16847fd249d46c05fa2d9983ee4d99bf117a4072ab968cbd1cd64f6aac599e928282b38543426040518080602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156104fc5780820151818401526020810190506104e1565b50505050905090810190601f1680156105295780820380516001836020036101000a031916815260200191505b5094505050505060405180910390a360348054905091505092915050565b600060019054906101000a900460ff16806105665750610565610666565b5b8061057d57506000809054906101000a900460ff16155b6105d2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602e8152602001806106ae602e913960400191505060405180910390fd5b60008060019054906101000a900460ff161590508015610622576001600060016101000a81548160ff02191690831515021790555060016000806101000a81548160ff0219169083151502179055505b80156106435760008060016101000a81548160ff0219169083151502179055505b50565b600060336000838152602001908152602001600020600101549050919050565b6000803090506000813b905060008114925050509056fe41747472696275746573206d75737420626520726567697374657265642062792074686520444944206f776e6572732e436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a265627a7a723158204f1e00ce4b557c20c487be31c1b1131ba0d8dc2c4ac24b781968749a75dfd74b64736f6c63430005100032",
   "sourceMap": "226:1612:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;226:1612:0;;;;;;;",
-  "deployedSourceMap": "226:1612:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;226:1612:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;714:933;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;714:933:0;;;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;714:933:0;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;714:933:0;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;714:933:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;714:933:0;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;640:68;;;:::i;:::-;;1653:183;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1653:183:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;714:933;825:9;907:3;871:40;;:12;:18;884:4;871:18;;;;;;;;;;;:24;;;;;;;;;;;;:40;;;:94;;;;955:10;927:38;;:12;:18;940:4;927:18;;;;;;;;;;;:24;;;;;;;;;;;;:38;;;871:94;850:189;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1095:4;1077:6;1071:20;:28;;1050:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1154:16;1173:12;:18;1186:4;1173:18;;;;;;;;;;;:24;;;;;;;;;;;;1154:43;;1232:1;1212:22;;:8;:22;;;1208:113;;;1261:10;1250:21;;1285:14;1305:4;1285:25;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1285:25:0;;;;;;;;;;;;;;;;;;;;;;1208:113;1352:98;;;;;;;;1385:8;1352:98;;;;;;1427:12;1352:98;;;1331:12;:18;1344:4;1331:18;;;;;;;;;;;:119;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1511:12;:18;1524:4;1511:18;;;;;;;;;;;:24;;;;;;;;;;;;1466:135;;1493:4;1466:135;1549:6;1569:12;1588:3;1466:135;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1466:135:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1619:14;:21;;;;1612:28;;;714:933;;;;:::o;640:68::-;1024:12:15;;;;;;;;;;;:31;;;;1040:15;:13;:15::i;:::-;1024:31;:47;;;;1060:11;;;;;;;;;;;1059:12;1024:47;1016:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1129:19;1152:12;;;;;;;;;;;1151:13;1129:35;;1174:14;1170:80;;;1213:4;1198:12;;:19;;;;;;;;;;;;;;;;;;1239:4;1225:11;;:18;;;;;;;;;;;;;;;;;;1170:80;1268:14;1264:55;;;1307:5;1292:12;;:20;;;;;;;;;;;;;;;;;;1264:55;640:68:0;:::o;1653:183::-;1743:26;1792:12;:18;1805:4;1792:18;;;;;;;;;;;:37;;;1785:44;;1653:183;;;:::o;1409:498:15:-;1456:4;1797:12;1820:4;1797:28;;1831:10;1876:4;1864:17;1858:23;;1901:1;1895:2;:7;1888:14;;;;1409:498;:::o",
-  "source": "pragma solidity 0.5.6;\nimport \"@openzeppelin/upgrades/contracts/Initializable.sol\";\n\n/**\n * @title Dex DIDRegistry Contract\n * @author Ilia Bukalov (ilyabukalov@gmail.com)\n *\n * @dev Implementation of the DIDRegistry.\n * \n */\ncontract DIDRegistry is Initializable {\n\n    struct DIDRegister {\n        address owner;\n        uint256 blockNumberUpdated;\n    }\n\n    mapping(bytes32 => DIDRegister) internal didRegisters;\n    bytes32[] internal didRegisterIds;\n\n    event DIDRegistered(\n        bytes32 indexed _did,\n        address indexed _owner,\n        string _value,\n        uint256 _blockNumberUpdated,\n        uint _timestamp\n    );\n\n    function initialize()\n        public\n        initializer\n    {\n    }\n\n    function registerDID(\n        bytes32 _did,\n        string memory _value\n    )\n        public\n        returns (uint size)\n    {\n        require(\n            didRegisters[_did].owner == address(0x0) ||\n            didRegisters[_did].owner == msg.sender,\n            'Attributes must be registered by the DID owners.'\n        );\n\n        require(\n            bytes(_value).length <= 2048,\n            'Invalid value size'\n        );\n\n        address didOwner = didRegisters[_did].owner;\n\n        if (didOwner == address(0)) {\n            didOwner = msg.sender;\n            didRegisterIds.push(_did);\n        }\n\n        didRegisters[_did] = DIDRegister({\n            owner: didOwner,\n            blockNumberUpdated: block.number\n        });\n\n        emit DIDRegistered(\n            _did,\n            didRegisters[_did].owner,\n            _value,\n            block.number,\n\t    now\n        );\n\n        return didRegisterIds.length;\n    }\n\n    function getBlockNumberUpdated(bytes32 _did)\n        public\n        view\n        returns (uint256 blockNumberUpdated)\n    {\n        return didRegisters[_did].blockNumberUpdated;\n    }\n}\n",
+  "deployedSourceMap": "226:1612:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;226:1612:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;714:933;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;714:933:0;;;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;714:933:0;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;714:933:0;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;714:933:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;714:933:0;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;640:68;;;:::i;:::-;;1653:183;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1653:183:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;714:933;825:9;907:3;871:40;;:12;:18;884:4;871:18;;;;;;;;;;;:24;;;;;;;;;;;;:40;;;:94;;;;955:10;927:38;;:12;:18;940:4;927:18;;;;;;;;;;;:24;;;;;;;;;;;;:38;;;871:94;850:189;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1095:4;1077:6;1071:20;:28;;1050:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1154:16;1173:12;:18;1186:4;1173:18;;;;;;;;;;;:24;;;;;;;;;;;;1154:43;;1232:1;1212:22;;:8;:22;;;1208:113;;;1261:10;1250:21;;1285:14;1305:4;1285:25;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1285:25:0;;;;;;;;;;;;;;;;;;;;;;1208:113;1352:98;;;;;;;;1385:8;1352:98;;;;;;1427:12;1352:98;;;1331:12;:18;1344:4;1331:18;;;;;;;;;;;:119;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1511:12;:18;1524:4;1511:18;;;;;;;;;;;:24;;;;;;;;;;;;1466:135;;1493:4;1466:135;1549:6;1569:12;1588:3;1466:135;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1466:135:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1619:14;:21;;;;1612:28;;;714:933;;;;:::o;640:68::-;1024:12:16;;;;;;;;;;;:31;;;;1040:15;:13;:15::i;:::-;1024:31;:47;;;;1060:11;;;;;;;;;;;1059:12;1024:47;1016:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1129:19;1152:12;;;;;;;;;;;1151:13;1129:35;;1174:14;1170:80;;;1213:4;1198:12;;:19;;;;;;;;;;;;;;;;;;1239:4;1225:11;;:18;;;;;;;;;;;;;;;;;;1170:80;1268:14;1264:55;;;1307:5;1292:12;;:20;;;;;;;;;;;;;;;;;;1264:55;640:68:0;:::o;1653:183::-;1743:26;1792:12;:18;1805:4;1792:18;;;;;;;;;;;:37;;;1785:44;;1653:183;;;:::o;1409:498:16:-;1456:4;1797:12;1820:4;1797:28;;1831:10;1876:4;1864:17;1858:23;;1901:1;1895:2;:7;1888:14;;;;1409:498;:::o",
+  "source": "pragma solidity ^0.5.0;\nimport '@openzeppelin/upgrades/contracts/Initializable.sol';\n\n/**\n * @title Dex DIDRegistry Contract\n * @author Ilia Bukalov (ilyabukalov@gmail.com)\n *\n * @dev Implementation of the DIDRegistry.\n *\n */\ncontract DIDRegistry is Initializable {\n\n    struct DIDRegister {\n        address owner;\n        uint256 blockNumberUpdated;\n    }\n\n    mapping(bytes32 => DIDRegister) internal didRegisters;\n    bytes32[] internal didRegisterIds;\n\n    event DIDRegistered(\n        bytes32 indexed _did,\n        address indexed _owner,\n        string _value,\n        uint256 _blockNumberUpdated,\n        uint _timestamp\n    );\n\n    function initialize()\n        public\n        initializer\n    {\n    }\n\n    function registerDID(\n        bytes32 _did,\n        string memory _value\n    )\n        public\n        returns (uint size)\n    {\n        require(\n            didRegisters[_did].owner == address(0x0) ||\n            didRegisters[_did].owner == msg.sender,\n            'Attributes must be registered by the DID owners.'\n        );\n\n        require(\n            bytes(_value).length <= 2048,\n            'Invalid value size'\n        );\n\n        address didOwner = didRegisters[_did].owner;\n\n        if (didOwner == address(0)) {\n            didOwner = msg.sender;\n            didRegisterIds.push(_did);\n        }\n\n        didRegisters[_did] = DIDRegister({\n            owner: didOwner,\n            blockNumberUpdated: block.number\n        });\n\n        emit DIDRegistered(\n            _did,\n            didRegisters[_did].owner,\n            _value,\n            block.number,\n\t    now\n        );\n\n        return didRegisterIds.length;\n    }\n\n    function getBlockNumberUpdated(bytes32 _did)\n        public\n        view\n        returns (uint256 blockNumberUpdated)\n    {\n        return didRegisters[_did].blockNumberUpdated;\n    }\n}\n",
   "sourcePath": "/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol",
   "ast": {
     "absolutePath": "/home/bill/Clients/Dex/dex-chain/contracts/DIDRegister.sol",
@@ -106,11 +116,12 @@
         "id": 1,
         "literals": [
           "solidity",
+          "^",
           "0.5",
-          ".6"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:22:0"
+        "src": "0:23:0"
       },
       {
         "absolutePath": "@openzeppelin/upgrades/contracts/Initializable.sol",
@@ -118,8 +129,8 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 139,
-        "sourceUnit": 1674,
-        "src": "23:60:0",
+        "sourceUnit": 1925,
+        "src": "24:60:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -132,10 +143,10 @@
               "id": 3,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1673,
+              "referencedDeclaration": 1924,
               "src": "250:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$1673",
+                "typeIdentifier": "t_contract$_Initializable_$1924",
                 "typeString": "contract Initializable"
               }
             },
@@ -145,15 +156,15 @@
           }
         ],
         "contractDependencies": [
-          1673
+          1924
         ],
         "contractKind": "contract",
-        "documentation": "@title Dex DIDRegistry Contract\n@author Ilia Bukalov (ilyabukalov@gmail.com)\n * @dev Implementation of the DIDRegistry.\n\n ",
+        "documentation": "@title Dex DIDRegistry Contract\n@author Ilia Bukalov (ilyabukalov@gmail.com)\n * @dev Implementation of the DIDRegistry.\n ",
         "fullyImplemented": true,
         "id": 138,
         "linearizedBaseContracts": [
           138,
-          1673
+          1924
         ],
         "name": "DIDRegistry",
         "nodeType": "ContractDefinition",
@@ -477,7 +488,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1648,
+                  "referencedDeclaration": 1899,
                   "src": "685:11:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -739,7 +750,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1688,
+                              "referencedDeclaration": 1939,
                               "src": "955:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -806,10 +817,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1691,
-                        1692
+                        1942,
+                        1943
                       ],
-                      "referencedDeclaration": 1692,
+                      "referencedDeclaration": 1943,
                       "src": "850:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -976,10 +987,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1691,
-                        1692
+                        1942,
+                        1943
                       ],
-                      "referencedDeclaration": 1692,
+                      "referencedDeclaration": 1943,
                       "src": "1050:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1226,7 +1237,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1688,
+                              "referencedDeclaration": 1939,
                               "src": "1261:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1404,7 +1415,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1678,
+                            "referencedDeclaration": 1929,
                             "src": "1427:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -1427,7 +1438,16 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
                         "id": 101,
                         "name": "DIDRegister",
                         "nodeType": "Identifier",
@@ -1560,7 +1580,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1678,
+                          "referencedDeclaration": 1929,
                           "src": "1569:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -1587,7 +1607,7 @@
                         "name": "now",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1690,
+                        "referencedDeclaration": 1941,
                         "src": "1588:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1959,11 +1979,12 @@
         "id": 1,
         "literals": [
           "solidity",
+          "^",
           "0.5",
-          ".6"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:22:0"
+        "src": "0:23:0"
       },
       {
         "absolutePath": "@openzeppelin/upgrades/contracts/Initializable.sol",
@@ -1971,8 +1992,8 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 139,
-        "sourceUnit": 1674,
-        "src": "23:60:0",
+        "sourceUnit": 1925,
+        "src": "24:60:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1985,10 +2006,10 @@
               "id": 3,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1673,
+              "referencedDeclaration": 1924,
               "src": "250:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$1673",
+                "typeIdentifier": "t_contract$_Initializable_$1924",
                 "typeString": "contract Initializable"
               }
             },
@@ -1998,15 +2019,15 @@
           }
         ],
         "contractDependencies": [
-          1673
+          1924
         ],
         "contractKind": "contract",
-        "documentation": "@title Dex DIDRegistry Contract\n@author Ilia Bukalov (ilyabukalov@gmail.com)\n * @dev Implementation of the DIDRegistry.\n\n ",
+        "documentation": "@title Dex DIDRegistry Contract\n@author Ilia Bukalov (ilyabukalov@gmail.com)\n * @dev Implementation of the DIDRegistry.\n ",
         "fullyImplemented": true,
         "id": 138,
         "linearizedBaseContracts": [
           138,
-          1673
+          1924
         ],
         "name": "DIDRegistry",
         "nodeType": "ContractDefinition",
@@ -2330,7 +2351,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1648,
+                  "referencedDeclaration": 1899,
                   "src": "685:11:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2592,7 +2613,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1688,
+                              "referencedDeclaration": 1939,
                               "src": "955:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2659,10 +2680,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1691,
-                        1692
+                        1942,
+                        1943
                       ],
-                      "referencedDeclaration": 1692,
+                      "referencedDeclaration": 1943,
                       "src": "850:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2829,10 +2850,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1691,
-                        1692
+                        1942,
+                        1943
                       ],
-                      "referencedDeclaration": 1692,
+                      "referencedDeclaration": 1943,
                       "src": "1050:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -3079,7 +3100,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1688,
+                              "referencedDeclaration": 1939,
                               "src": "1261:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3257,7 +3278,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1678,
+                            "referencedDeclaration": 1929,
                             "src": "1427:5:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -3280,7 +3301,16 @@
                         }
                       ],
                       "expression": {
-                        "argumentTypes": null,
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
                         "id": 101,
                         "name": "DIDRegister",
                         "nodeType": "Identifier",
@@ -3413,7 +3443,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1678,
+                          "referencedDeclaration": 1929,
                           "src": "1569:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -3440,7 +3470,7 @@
                         "name": "now",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1690,
+                        "referencedDeclaration": 1941,
                         "src": "1588:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3800,14 +3830,21 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.6+commit.b259423e.Emscripten.clang"
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1337": {
+      "events": {},
+      "links": {},
+      "address": "0x966c2E10e3629353F3B178252DB8039b896E51Eb",
+      "transactionHash": "0xb48c411eb4c51f1801731deb10d3e2a492ec5b23f38f2bda9ad453a7e718f3ed"
+    }
+  },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-06-25T03:21:16.596Z",
+  "updatedAt": "2020-07-01T06:03:42.977Z",
   "devdoc": {
     "author": "Ilia Bukalov (ilyabukalov@gmail.com)",
-    "details": "Implementation of the DIDRegistry.  ",
+    "details": "Implementation of the DIDRegistry. ",
     "methods": {},
     "title": "Dex DIDRegistry Contract"
   },

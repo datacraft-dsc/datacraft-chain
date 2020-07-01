@@ -1,111 +1,61 @@
-# Direct purchase using Ocean token
+# Dex-chain
 
-## Install Solidity compiler for Ubuntu and Truffle environment
-```
-sudo add-apt-repository ppa:ethereum/ethereum
-sudo apt-get update
-sudo apt install nodejs
-sudo apt install npm
-sudo apt install gcc g++ make
-sudo apt-get install solc
-```
-## Install Truffle
-```
-sudo npm init -y
-sudo npm install --save-exact truffle
-sudo npm install --save-exact dotenv
-npm install web3-provider-engine
-truffle init
-```
-## Install Openzeppelin for upgradability support
-```
-npm install --global @openzeppelin/cli
-npm install @openzeppelin/upgrades
-npm install @openzeppelin/contracts-ethereum-package
-openzeppelin init
-openzeppelin link @openzeppelin/contracts-ethereum-package --push <network name> --skip-compile 
-openzeppelin add DirectPurchase
-openzeppelin add DIDRegistry
-```
-## To compile and deploy with Truffle
-#### Locally with compiling simulated Ocean Token on the empty network
-```
-export NODE_HOST="127.0.0.1"
-export NODE_PORT=8545
-export ARTIFACTS_FOLDER=artifacts
-truffle compile
-trufle migrate
-# or to re-build from scratch:
-truffle migrate --reset --compile-all --network spree
-```
-#### Locally with reusing existing Ocean Token on running barge
-```
-export NODE_HOST="127.0.0.1"
-export NODE_PORT=8545
-export ARTIFACTS_FOLDER=artifacts
-truffle compile
-trufle migrate --artifacts
-# or to re-build from scratch:
-truffle migrate --reset --compile-all --artifacts --network spree
-```
-#### Locally with reusing existing Ocean Token on running barge with upgradable proxy deployment
-```
-export NODE_HOST="127.0.0.1"
-export NODE_PORT=8545
-export ARTIFACTS_FOLDER=artifacts
-truffle migrate --reset --compile-all --proxy --network spree
-```
-#### Upgradable proxy deployment to Nile network
-```
-# to prepare correct OceanToken artifacts file
-export NODE_HOST="https://nile.dev-ocean.com"
-export NODE_PORT=8545
-export ARTIFACTS_FOLDER=artifacts
-openzeppelin link @openzeppelin/contracts-ethereum-package --push nile --skip-compile 
-truffle migrate --network nile --reset --compile-all --proxy
-```
-#### To recompile Solidity contract and upgrade proxy
-```
-openzeppelin upgrade
-```
-#### Using docker container on running barge
-```
-# Download artifacts to your host folder
-docker run --net=ocean_backend -i -t --rm -v <full path to your host artifacts folder>:/usr/local/keeper-contracts --env NODE_HOST="keeper-node" --env NODE_PORT=8545 --env ARTIFACTS_FOLDER=/usr/local/keeper-contracts direct-purchase
-# To observe newly generated DirectPurchase.spree.json artifact file in your host artifacts folder
-```
-#### Using docker container on running dex chain
-```
-docker run --net=dex_backend -i -t -v <full path to your host artifacts folder>:/usr/local/keeper-contracts --env NODE_HOST="chain-node" --env NODE_PORT=8545 --env ARTIFACTS_FOLDER=/usr/local/keeper-contracts --env LOCAL_CONTRACTS="true" dexcompany/contracts:v0.1
-```
-## Install dependecies for Python
-```
-virtualenv -p /usr/bin/python3.6 venv
-source venv/bin/activate
-pip3 install 'web3==4.5.0' # only this version works fine with parity and locking/unlocking account feature
-pip3 install py-solc-x
-python -m solcx.install v0.5.6
-```
-## To compile and deploy with Python
-```
-python compile.py
-```
-## To compile ABI for Java
-```
-curl -L https://get.web3j.io | sh
-source $HOME/.web3j/source.sh
-web3j truffle generate --javaTypes ./build/contracts/DirectPurchase.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
-web3j truffle generate --javaTypes ./build/contracts/DIDRegistry.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
-web3j truffle generate --javaTypes ./build/contracts/Provenance.json -o src/main/java/ -p sg.dex.starfish.dexchain.impl
-```
-# Dex chain
+This repo now installs the Dex contracts, and also runs dex block chain network for testing.
 
-## Run parity node
+## Development
+To develop any contract you need to install the supported packages.
+
 ```
-./run_dex_chain.sh
+npm install
 ```
-## Add acount
+
+To compile the contracts, you need to type:
 ```
-docker run -it -v $PWD/parity:/parity parity/parity:v2.5.1 account new --config /parity/config.toml
+npm run compile
 ```
-New account credentials will be created in parity/keys/dex folder
+
+## Installing
+Currently this repo only installs contracts to a local private block chain.
+So first you need to open a new terminal and start the private block chain.
+
+```
+./scripts/run_local_network.sh
+```
+
+Then you can install all of the contracts by typing:
+```
+npm run install:local
+```
+
+
+## Local Private Network
+The local private network has the following accounts pre-loaded with Ethereum balances:
+
++   0x32F098d6965ef0164151162787C69219F6D333dB
++   0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee
++   0x8d5606e48c385cf8e4198439fa4cdf42b4dbb8c8
++   0xAa7CA83822670633D633D0195BC7d68EDF5b2ea0
++   0x8D5606e48c385CF8E4198439Fa4cDF42B4DBb8C8
+
+The first three accounts are unlocked, and for all of the accounts the password is **dex-secret**.
+
+
+## Building Java artifacts template files
+To build the Java runtime, you need to the run:
+
+```
+./scripts/build_java_artifacts.sh
+```
+The template files will be writtern to the `build/src/` folder.
+
+## Run the local private network for testing
+You can run and install the contracts for testing as follows:
+```
+# run and install the contracts
+./scripts/run_local_network.sh install
+```
+
+Or you can run the docker file, which will do the same but you do not need to install any of the packages/software to run the private network.
+```
+docker run -t dex-chain -p 8545:9545 './scripts/run_local_network.sh' install
+```
