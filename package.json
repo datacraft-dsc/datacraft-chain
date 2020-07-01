@@ -1,6 +1,6 @@
 {
   "name": "dex-chain",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "# for Ubuntu sudo add-apt-repository ppa:ethereum/ethereum",
   "main": "index.js",
   "directories": {
