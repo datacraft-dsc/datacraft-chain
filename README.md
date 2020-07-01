@@ -48,3 +48,14 @@ To build the Java runtime, you need to the run:
 ```
 The template files will be writtern to the `build/src/` folder.
 
+## Run the local private network for testing
+You can run and install the contracts for testing as follows:
+```
+# run and install the contracts
+./scripts/run_local_network.sh install
+```
+
+Or you can run the docker file, which will do the same but you do not need to install any of the packages/software to run the private network.
+```
+docker run -t dex-chain -p 8545:9545 './scripts/run_local_network.sh' install
+```
