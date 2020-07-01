@@ -51,7 +51,6 @@ The template files will be writtern to the `build/src/` folder.
 ## Run the local private network for testing
 If you have `geth` and `node` already installed, then you can run and install the contracts for testing as follows:
 ```
-# run and install the contracts
 ./scripts/run_local_network.sh install
 ```
 
