@@ -4,14 +4,13 @@ services:
     image: dexcompany/contracts:${CONTRACTS_VERSION}
     networks:
       backend:
-        ipv4_address: 172.33.0.31
+        ipv4_address: 172.33.0.11
     depends_on:
       - chain-node
     environment:
       NODE_HOST: ${CHAIN_RPC_HOST}
       NODE_PORT: ${CHAIN_RPC_PORT}
       DEPLOY_DEX_CONTRACTS: ${DEPLOY_CONTRACTS}
-      ARTIFACTS_FOLDER: '/usr/local/keeper-contracts'
-      WAIT_FOR_OCEAN_CONTRACTS: 'false'
+      ARTIFACTS_FOLDER: '/usr/local/artifacts'
     volumes:
-      - ${ARTIFACTS_FOLDER}:/usr/local/keeper-contracts
+      - ${ARTIFACTS_FOLDER}:/usr/local/artifacts

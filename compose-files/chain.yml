@@ -1,14 +1,13 @@
 version: '3'
 services:
   chain-node:
-    image: parity/parity:${PARITY_VERSION}
+    image: ethereum/client-go:latest
     command:
-      --config /parity/config.toml
+
     volumes:
       - ../parity:/parity
     ports:
       - 8545:8545
-      - 8546:8546
     networks:
       backend:
-        ipv4_address: 172.33.0.12
+        ipv4_address: 172.33.0.10
