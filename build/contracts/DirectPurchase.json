@@ -1679,12 +1679,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xD25acc68a1D58Ef80b89edC0A1D18893866a953B",
-      "transactionHash": "0x8f100b73dbf4bf1bd0e0bbe2f6345a2432a1d74e5a355712a1bc5b5d4fbd8cfb"
+      "address": "0x6b5AaaD8b7218DA75c67C64498fA1c3C68A909Cf",
+      "transactionHash": "0x17eb31920b1e0d3ad59fa63abbe6fdc3d8e70ae4eb0f01ec5e6d00052a712ed8"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-07-02T02:17:43.611Z",
+  "updatedAt": "2020-07-02T02:30:09.729Z",
   "devdoc": {
     "author": "Ilia Bukalov (ilyabukalov@gmail.com)",
     "details": "Implementation of the DirectPurchase.     IERC20 token is OceanToken.",

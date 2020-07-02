@@ -3836,12 +3836,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x3028fBdf39cd4B047C628767DFab01a9b7797dfb",
-      "transactionHash": "0xeb9d217e91e79d7ee05ce837c5a10575172dfcf26a268f2a5f560289ff952914"
+      "address": "0xB7ec5994243AEe93A7393287A84E506545F50e08",
+      "transactionHash": "0xa16cf26e85703585b41710f627f98876d752cecdaee9140627fd985fda35ee08"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-07-02T02:17:44.214Z",
+  "updatedAt": "2020-07-02T02:30:10.397Z",
   "devdoc": {
     "author": "Ilia Bukalov (ilyabukalov@gmail.com)",
     "details": "Implementation of the DIDRegistry. ",

@@ -7,3 +7,8 @@ local-network-data/
 # OpenZeppelin
 .openzeppelin/dev-*.json
 .openzeppelin/.session
+
+# ignore local contract artifacts
+artifacts/*.1337.json
+
+# ignore contact build files
