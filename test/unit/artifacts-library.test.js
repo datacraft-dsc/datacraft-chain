@@ -1,7 +1,7 @@
 /*
  *
  *
- *  Test Build artifacts library
+ *  Test artifacts library
  *
  */
 

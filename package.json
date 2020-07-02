@@ -14,7 +14,7 @@
     "compile": "npm run compile:truffle",
     "compile:truffle": "truffle compile",
     "compile:oz": "npx oz compile",
-    "install:local": "openzeppelin push --network local --deploy-dependencies --skip-compile --no-interactive && truffle migrate --network local --reset",
+    "install:local": "npm run compile && openzeppelin push --network local --deploy-dependencies --skip-compile --no-interactive && truffle migrate --network local --reset",
     "test": "mocha test/**/*.test.js"
   },
   "repository": {

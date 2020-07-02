@@ -2,7 +2,7 @@
 /*
  *
  *
- *  Build artifacts library
+ *  artifacts library
  *
  */
 
@@ -11,9 +11,7 @@ const fs = require('fs')
 const {gzip} = require('node-gzip')
 
 module.exports.load = function(path) {
-    const result = {
-        'artifacts': {},
-    }
+    const result = {}
     const files = fs.readdirSync(path);
     files.forEach( function(filename) {
         const regexp = /(\w+)\.(\d+)\.json/i
@@ -21,12 +19,11 @@ module.exports.load = function(path) {
         if (match) {
             const networkId = match[2]
             const buffer = fs.readFileSync(`${path}/${filename}`)
-            if (!result.artifacts[networkId]) {
-                result.artifacts[networkId] = {}
+            if (!result[networkId]) {
+                result[networkId] = {}
             }
             const contract = JSON.parse(buffer.toString())
-            result.artifacts[networkId][contract.name] = contract
-//            console.log(result)
+            result[networkId][contract.name] = contract
         }
     })
     return result

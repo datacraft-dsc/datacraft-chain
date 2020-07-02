@@ -17,8 +17,11 @@ const ARTICFACTS_PATH = 'artifacts'
 module.exports = function(deployer) {
 
     const artifacts = artifactsLibrary.load(ARTICFACTS_PATH)
-    artifacts.version = projectData.version
-    artifactsLibrary.save(`${ARTICFACTS_PATH}/artifacts.json.gz`, artifacts)
-    console.log('    created artifacts.json.gz package')
+    const packageData = {
+        'artifacts': artifacts,
+        'version': projectData.version,
+    }
+    artifactsLibrary.save(`${ARTICFACTS_PATH}/artifacts.json.gz`, packageData)
+    console.log('    Created artifacts.json.gz package file.')
 };
 
