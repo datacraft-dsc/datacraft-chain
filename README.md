@@ -70,13 +70,13 @@ The deploy steps for any network are as follows:
 
 +   Write an artifact file with the contract address into the folder:
 
-        artifacts/**contractName**.**networkId**.json
+        artifacts/<contractName>.<networkId>.json
 
 +   At the end of the deployment, create two artifact package files:
 
-    artifacts/artifacts.json.gz : This file contains all of the published contracts in all networks except the local private network ( 1337 ).
+    `artifacts/artifacts.json.gz` : This file contains all of the published contracts in all networks except the local private network ( 1337 ).
 
-    artifacts/artifacts.**networkId**.json.gz : This contains all of the contracts currently deployed on the network with the id **networkId**.
+    `artifacts/artifacts.<networkId>.json.gz` : This contains all of the contracts currently deployed on the network with the id **networkId**.
 
 
 ### Using Contract Artifact Packages
