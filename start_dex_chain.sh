@@ -23,7 +23,7 @@ Options:
 --dry-run                       -d      Run without executing an scripts or docker container.
 --install                       -i      Allways install the contracts on the local private network.
 --naitive                       -n      Run the chain/network without using docker
---publish                       -p      List of ports to publish in docker. Default: '8545:8545'.
+--publish                       -p      List of ports to publish in docker. Default: '8545:8545,8550:8550'.
 
 EOT
 }

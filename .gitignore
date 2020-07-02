@@ -10,5 +10,6 @@ local-network-data/
 
 # ignore local contract artifacts
 artifacts/*.1337.json
+artifacts/*.1337.json.gz
 
 # ignore contact build files

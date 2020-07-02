@@ -4,6 +4,10 @@
 if [ "$1" == "install" ]; then
     IS_INSTALL=1
     echo "Will also install contracts to local network"
+    npm run clean
+    rm -f artifacts/artifacts.1337.json.gz
+    echo "Starting up the package server"
+    npm run package:server &
 fi
 
 DATA_FOLDER=local-network-data
@@ -41,6 +45,7 @@ if [ $IS_INSTALL ]; then
     echo "Installing local contracts"
     npm run install:local
     echo "Completed local contracts installation"
+
 fi
 echo "Local block chain network running..."
 wait

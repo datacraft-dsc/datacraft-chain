@@ -12,16 +12,28 @@ const artifactsLibrary = require('../src/artifacts-library')
 const projectData = require('../package.json')
 
 
-const ARTICFACTS_PATH = 'artifacts'
+const artifactsPath = 'artifacts'
+const localNetworkId = 1337
 
-module.exports = function(deployer) {
+module.exports = function(deployer, network) {
 
-    const artifacts = artifactsLibrary.load(ARTICFACTS_PATH)
-    const packageData = {
-        'artifacts': artifacts,
+    const networkId = deployer.network_id
+    const artifactsAll = artifactsLibrary.loadFiles(artifactsPath, { 'neq': networkId })
+    let packageData = {
+        'artifacts': artifactsAll,
         'version': projectData.version,
     }
-    artifactsLibrary.save(`${ARTICFACTS_PATH}/artifacts.json.gz`, packageData)
+    artifactsLibrary.savePackage(`${artifactsPath}/artifacts.json.gz`, packageData)
     console.log('    Created artifacts.json.gz package file.')
+
+
+    const artifactsNetwork = artifactsLibrary.loadFiles(artifactsPath, { 'eq': networkId })
+    packageData = {
+        'artifacts': artifactsNetwork,
+        'version': projectData.version,
+    }
+
+    artifactsLibrary.savePackage(`${artifactsPath}/artifacts.${networkId}.json.gz`, packageData)
+    console.log(`    Created artifacts.${networkId}.json.gz package file.`)
 };
 

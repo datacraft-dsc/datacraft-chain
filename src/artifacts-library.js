@@ -8,9 +8,9 @@
 
 
 const fs = require('fs')
-const {gzip} = require('node-gzip')
+const {gzip, ungzip} = require('node-gzip')
 
-module.exports.load = function(path) {
+module.exports.loadFiles = function(path, filter) {
     const result = {}
     const files = fs.readdirSync(path);
     files.forEach( function(filename) {
@@ -18,18 +18,32 @@ module.exports.load = function(path) {
         let match = filename.match(regexp)
         if (match) {
             const networkId = match[2]
-            const buffer = fs.readFileSync(`${path}/${filename}`)
-            if (!result[networkId]) {
-                result[networkId] = {}
+            let isNetworkFilter = filter === undefined
+            if ( filter && (filter.eq == networkId || filter.neq != networkId)) {
+                isNetworkFilter = true
             }
-            const contract = JSON.parse(buffer.toString())
-            result[networkId][contract.name] = contract
+            if (isNetworkFilter) {
+                                const buffer = fs.readFileSync(`${path}/${filename}`)
+                if (!result[networkId]) {
+                    result[networkId] = {}
+                }
+                const contract = JSON.parse(buffer.toString())
+                result[networkId][contract.name] = contract
+            }
         }
     })
     return result
 }
 
-module.exports.save = async function(filename, artifacts) {
+module.exports.loadPackage = async function(filename) {
+    const buffer = fs.readFileSync(filename)
+    if (buffer) {
+        const artifactData = await ungzip(buffer)
+        return JSON.parse(artifactData.toString())
+    }
+}
+
+module.exports.savePackage = async function(filename, artifacts) {
     const data = await gzip(JSON.stringify(artifacts))
     return fs.writeFileSync(filename, data)
 }

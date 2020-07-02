@@ -15,7 +15,8 @@
     "compile:truffle": "truffle compile",
     "compile:oz": "npx oz compile",
     "install:local": "npm run compile && openzeppelin push --network local --deploy-dependencies --skip-compile --no-interactive && truffle migrate --network local --reset",
-    "test": "mocha test/**/*.test.js"
+    "test": "mocha test/**/*.test.js",
+    "package:server": "node src/packageServer.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,5 @@
     "truffle": "5.0.30",
     "truffle-hdwallet-provider": "^1.0.17"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
