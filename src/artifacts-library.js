@@ -36,10 +36,14 @@ module.exports.loadFiles = function(path, filter) {
 }
 
 module.exports.loadPackage = async function(filename) {
-    const buffer = fs.readFileSync(filename)
-    if (buffer) {
-        const artifactData = await ungzip(buffer)
-        return JSON.parse(artifactData.toString())
+    try {
+        const buffer = fs.readFileSync(filename)
+        if (buffer) {
+            const artifactData = await ungzip(buffer)
+            return JSON.parse(artifactData.toString())
+        }
+    } catch(error) {
+        console.log(error.message)
     }
 }
 

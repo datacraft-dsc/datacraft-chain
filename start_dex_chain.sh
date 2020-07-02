@@ -30,7 +30,8 @@ EOT
 
 COMMAND=()
 DOCKER_NAME="dex-chain"
-PUBLISH_PORTS="8545:8545"
+PUBLISH_PORTS="8545:8545,8550:8550"
+
 
 # parse args
 while [[ $# -gt 0 ]]; do
@@ -103,8 +104,14 @@ if [ $IS_NATIVE ]; then
     exit
 fi
 
+
+if [ ! -z "$PUBLISH_PORTS" ]; then
+    PUBLISH_PORT_LIST="--publish ${PUBLISH_PORTS//,/ --publish }"
+fi
+
+
 # setup docker and execute script line in docker
-DOCKER_LINE="docker run -p $PUBLISH_PORTS $DOCKER_NAME $SCRIPT_LINE"
+DOCKER_LINE="docker run $PUBLISH_PORT_LIST $DOCKER_NAME $SCRIPT_LINE"
 if [ $IS_DRY_RUN ]; then
     echo "Will execute: $DOCKER_LINE"
     exit

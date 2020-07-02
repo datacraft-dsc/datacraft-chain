@@ -9,5 +9,7 @@ ADD . $HOME
 
 RUN apk add --no-cache git bash make g++ geth
 RUN npm install
+# download the correct solc compiler
+RUN npm run compile
 
 # CMD $HOME/scripts/run_local_network.sh
