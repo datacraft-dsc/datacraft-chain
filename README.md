@@ -62,7 +62,7 @@ docker run -t dex-chain -p 8545:9545 -p 8550:8550 './scripts/run_local_network.s
 ## Contract Artifact Packages
 
 ### Building Contract Artifact Packages
-As each deployed contract the truffle migration script will create an artifact file. At the end of the deployment the script will then add artifact packages.
+As each deployed contract the truffle migration script will create an artifact file. At the end of the deployment the script will then add all of the artifact files to the artifact packages.
 
 The deploy steps for any network are as follows:
 
@@ -74,7 +74,7 @@ The deploy steps for any network are as follows:
 
 +   At the end of the deployment, create two artifact package files:
 
-    `artifacts/artifacts.json.gz` : This file contains all of the published contracts in all networks except the local private network ( 1337 ).
+    `artifacts/artifacts.json.gz` : This file contains all of the published contracts in public/test networks except the local private network ( 1337 ).
 
     `artifacts/artifacts.<networkId>.json.gz` : This contains all of the contracts currently deployed on the network with the id **networkId**.
 
@@ -98,5 +98,20 @@ With the Local Private Network, there is an issue in obtaining the correct contr
 
 The starfish library can the just request this server for the latest artifacts to be included into the library.
 
+### Artifacts Package Structure
+The Artifacts package contains the following structure:
 
+    {
+        'version': '<dex-chain-version>',
+        'artifacts': {
+            '<networkId1>': {
+                '<contractName1>': { // artifact data  },
+                '<contractName2>': { // artifact data  }
+            }
+            '<networkId2>': {
+                '<contractName1>': { // artifact data  },
+                '<contractName2>': { // artifact data  }
+            }
+        }
+    }
 
