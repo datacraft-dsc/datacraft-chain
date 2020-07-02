@@ -1561,12 +1561,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x6B43F5A85efD5f738367D6E4a22deeb9ea7E7f2a",
-      "transactionHash": "0xd2df1d672c115c5d8fd9a5748b89580730d11e1f0d544e0e6e04c3a8eaa89597"
+      "address": "0x866F888149173BF9f5083FF6ce18F64d69572871",
+      "transactionHash": "0x91dcfa580d4dfe56cd1828befde2ef29055a939612c14eb1f912a6670794ff00"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2020-07-01T06:03:43.728Z",
+  "updatedAt": "2020-07-02T02:17:44.795Z",
   "devdoc": {
     "author": "Ilia Bukalov (ilyabukalov@gmail.com)",
     "details": "Implementation of the Provenance. ",

@@ -8,5 +8,5 @@ module.exports = function writeContractArtifact(artifact, network) {
         'address': artifact.address,
     }
     const data = JSON.stringify(artifactData);
-    fs.writeFileSync(`./artifacts/${artifact.contractName}.${network}.json`, data);
+    fs.writeFileSync(`./artifacts/${artifact.contractName}.${artifact.network_id}.json`, data);
 }

@@ -25,7 +25,6 @@ console.log(mainOptions)
 if (mainOptions.command === 'build') {
     const buildDefinitions = [
         { name: 'artifacts', type: String, alias: 'a' },
-//        { name: 'message', alias: 'm' }
     ]
     console.log(argv)
     const buildOptions = commandLineArgs(buildDefinitions, { argv })

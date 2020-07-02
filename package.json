@@ -15,7 +15,7 @@
     "compile:truffle": "truffle compile",
     "compile:oz": "npx oz compile",
     "install:local": "openzeppelin push --network local --deploy-dependencies --skip-compile --no-interactive && truffle migrate --network local --reset",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -34,8 +34,11 @@
     "@openzeppelin/contracts-ethereum-package": "^2.5.0",
     "@openzeppelin/upgrades": "^2.8.0",
     "minimist": ">=0.2.1",
+    "mocha": "^8.0.1",
+    "node-gzip": "^1.1.2",
     "truffle": "5.0.30",
     "truffle-hdwallet-provider": "^1.0.17"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
