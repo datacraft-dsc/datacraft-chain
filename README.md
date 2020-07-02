@@ -68,7 +68,9 @@ The deploy steps for any network are as follows:
 
 +   Deploy the contract on the network.
 
-+   Write an artifact file with the contract address into the folder `artifacts/**contractName**.**networkId**.json`
++   Write an artifact file with the contract address into the folder:
+
+        artifacts/**contractName**.**networkId**.json
 
 +   At the end of the deployment, create two artifact package files:
 
