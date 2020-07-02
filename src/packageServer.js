@@ -29,7 +29,11 @@ app.get('/', (request, response) => {
 
 app.get('/artifacts', async (request, response) => {
     const artifacts = await artifactsLibrary.loadPackage(packageFilename)
-    response.send(artifacts.artifacts[networkId])
+    if (artifacts) {
+        response.send(artifacts.artifacts[networkId])
+    } else {
+        response.send('{}')
+    }
 })
 
 app.listen(port, () => {
