@@ -32,7 +32,6 @@ module.exports = function(deployer, network) {
         'artifacts': artifactsNetwork,
         'version': projectData.version,
     }
-
     artifactsLibrary.savePackage(`${artifactsPath}/artifacts.${networkId}.json.gz`, packageData)
     console.log(`    Created artifacts.${networkId}.json.gz package file.`)
 };

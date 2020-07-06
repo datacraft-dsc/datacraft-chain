@@ -1,8 +1,11 @@
-const Provenance = artifacts.require("Provenance");
-const writeContractArtifact = require('./writeContract')
+const writeContractArtifact = require('../src/writeContract')
 
-module.exports = function(deployer, network) {
-    deployer.deploy(Provenance).then( () => {
-        writeContractArtifact(Provenance, network)
-    });
-};
+const Provenance = artifacts.require("Provenance");
+
+
+module.exports = function(deployer, networkName, accounts) {
+    deployer.deploy(Provenance).then( async () => {
+        writeContractArtifact(Provenance, networkName)
+    })
+}
+

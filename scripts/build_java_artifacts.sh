@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build Java library
-CONTRACT_LIST=("DIDRegister" "DexToken" "DirectPurchase" "Dispenser" "Provenance")
+CONTRACT_LIST=("DIDRegistry" "DexToken" "DirectPurchase" "Dispenser" "Provenance")
 
 JAVA_LIB_PATH_NAME=sg.dex.starfish.dexchain.impl
 DESTINATION_FOLDER=build/src/main/java

@@ -28,9 +28,9 @@ app.get('/', (request, response) => {
 })
 
 app.get('/artifacts', async (request, response) => {
-    const artifacts = await artifactsLibrary.loadPackage(packageFilename)
-    if (artifacts) {
-        response.send(artifacts.artifacts[networkId])
+    const packageData = await artifactsLibrary.loadPackage(packageFilename)
+    if (packageData) {
+        response.send(packageData)
     } else {
         response.send('{}')
     }

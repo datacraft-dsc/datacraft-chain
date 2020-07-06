@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-module.exports = function writeContractArtifact(artifact, network) {
+module.exports = function writeContractArtifact(artifact, networkName) {
 
     const artifactData = {
         'name': artifact.contractName,

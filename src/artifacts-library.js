@@ -14,7 +14,7 @@ module.exports.loadFiles = function(path, filter) {
     const result = {}
     const files = fs.readdirSync(path);
     files.forEach( function(filename) {
-        const regexp = /(\w+)\.(\d+)\.json/i
+        const regexp = /(\w+)\.(\d+)\.json$/i
         let match = filename.match(regexp)
         if (match) {
             const networkId = match[2]
@@ -23,7 +23,7 @@ module.exports.loadFiles = function(path, filter) {
                 isNetworkFilter = true
             }
             if (isNetworkFilter) {
-                                const buffer = fs.readFileSync(`${path}/${filename}`)
+                const buffer = fs.readFileSync(`${path}/${filename}`)
                 if (!result[networkId]) {
                     result[networkId] = {}
                 }

@@ -9,7 +9,7 @@ pragma solidity ^0.5.0;
 import '@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Capped.sol';
 import '@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/ERC20Detailed.sol';
 import '@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol';
-import '@openzeppelin/upgrades/contracts/Initializable.sol';
+// import '@openzeppelin/upgrades/contracts/Initializable.sol';
 
 /**
  * @title Dex ERC20 Token Contract
@@ -18,11 +18,12 @@ import '@openzeppelin/upgrades/contracts/Initializable.sol';
  * @dev Implementation of the Dex Token.
  *      Dex Token is ERC20 token
  */
-contract DexToken is Initializable, Ownable, ERC20Detailed, ERC20Capped {
+contract DexToken is Ownable, ERC20Detailed, ERC20Capped {
 
     using SafeMath for uint256;
 
     function initialize(
+        address _owner,
         address _initialMinter
     )
         public
@@ -32,8 +33,8 @@ contract DexToken is Initializable, Ownable, ERC20Detailed, ERC20Capped {
         uint256 TOTALSUPPLY = CAP.mul(10 ** 18);
 
         ERC20Detailed.initialize('Token', 'DEX', 18);
-        ERC20Capped.initialize(TOTALSUPPLY, msg.sender);
-        Ownable.initialize(msg.sender);
+        ERC20Capped.initialize(TOTALSUPPLY, _owner);
+        Ownable.initialize(_owner);
         _addMinter(_initialMinter);
     }
 }

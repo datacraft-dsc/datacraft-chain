@@ -59,7 +59,7 @@ contract Dispenser is Ownable {
 
     /**
      * @dev Dispenser Initializer
-     * @param _dexTokenAddress The deployed contract address of an OceanToken
+     * @param _dexTokenAddress The deployed contract address of an DexToken
      * @param _owner The owner of the Dispenser
      * Runs only on initial contract creation.
      */
@@ -82,6 +82,11 @@ contract Dispenser is Ownable {
         minPeriod = 0;
 
         maxMintAmount = uint256(100000000).mul(scale);
+        require(
+            scale > 0,
+            'scale is zero on init'
+        );
+
     }
 
     /**
@@ -97,6 +102,15 @@ contract Dispenser is Ownable {
         returns (bool tokensTransferred)
     {
         uint256 amountWithDigits = amount.mul(scale);
+
+        require(
+            scale > 0,
+            'scale is zero'
+        );
+        require(
+            maxMintAmount > 0,
+            'maxMintAmount is zero'
+        );
 
         require(
             amountWithDigits + totalMintAmount < maxMintAmount,

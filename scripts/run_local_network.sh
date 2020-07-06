@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-if [ "$1" == "install" ]; then
-    IS_INSTALL=1
-    echo "Will also install contracts to local network"
+if [ "$1" == "deploy" ]; then
+    IS_DEPLOY=1
+    echo "Will also deploy contracts to local network"
     npm run clean
     rm -f artifacts/artifacts.1337.json.gz
     echo "Starting up the package server"
@@ -30,6 +30,7 @@ geth \
 --rpc \
 --rpcaddr '0.0.0.0' \
 --rpccorsdomain '*' \
+--rpcapi personal,eth,net,web3 \
 --nodiscover \
 --nousb \
 --port 30303 \
@@ -40,10 +41,10 @@ geth \
 --miner.gastarget 1 \
 --miner.noverify &
 
-if [ $IS_INSTALL ]; then
+if [ $IS_DEPLOY ]; then
     sleep 4
     echo "Installing local contracts"
-    npm run install:local
+    npm run deploy:local
     echo "Completed local contracts installation"
 
 fi

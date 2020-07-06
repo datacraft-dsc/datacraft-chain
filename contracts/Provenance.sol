@@ -30,7 +30,7 @@ contract Provenance is Initializable {
         public
     {
         if(assetIdRegisters[_assetId] == 0)
-	    assetIdRegisters[_assetId] = block.number;
+            assetIdRegisters[_assetId] = block.number;
 
         emit AssetRegistered(
             _assetId,

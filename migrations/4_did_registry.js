@@ -1,8 +1,11 @@
-const DIDRegistry = artifacts.require("DIDRegistry");
-const writeContractArtifact = require('./writeContract')
+const writeContractArtifact = require('../src/writeContract')
 
-module.exports = function(deployer, network) {
-  deployer.deploy(DIDRegistry).then( () => {
-        writeContractArtifact(DIDRegistry, network)
-    });
-};
+const DIDRegistry = artifacts.require("DIDRegistry");
+
+
+module.exports = function(deployer, networkName, accounts) {
+    deployer.deploy(DIDRegistry).then( async () => {
+        writeContractArtifact(DIDRegistry, networkName)
+    })
+}
+
