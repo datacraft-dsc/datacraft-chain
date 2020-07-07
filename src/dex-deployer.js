@@ -9,6 +9,7 @@ class DexDeployer {
     constructor(networkName, accounts) {
         this.networkName = networkName
         this.networkAccounts = accounts
+        // at the moment hard coded, maybe have this in a config file somewhere ?
         this.accounts = {
             'deployer': '0x32F098d6965ef0164151162787C69219F6D333dB',
             'owner': '0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee',

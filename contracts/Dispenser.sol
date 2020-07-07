@@ -111,7 +111,10 @@ contract Dispenser is Ownable {
             maxMintAmount > 0,
             'maxMintAmount is zero'
         );
-
+        require(
+            amountWithDigits < maxMintAmount,
+            'amount exceded maxMintAmount'
+        );
         require(
             amountWithDigits + totalMintAmount < maxMintAmount,
             'Exceeded maxMintAmount'
