@@ -15,21 +15,27 @@ Command can be one of the following:
 local                   Start a local private network
 
 test                    Start a local private network and also install the contracts on the local network.
-                        The same as 'start_dex_chain.sh --install local'.
+                        The same as 'start_dex_chain.sh --deploy local'.
 
 Options:
 
 --docker=<DOCKER_NAME>                  Docker image name. Default: 'dex-chain'.
---dry-run                       -d      Run without executing an scripts or docker container.
---install                       -i      Allways install the contracts on the local private network.
---naitive                       -n      Run the chain/network without using docker
+--dry-run                       -n      Run without executing an scripts or docker container.
+--deploy                        -d      Allways install the contracts on the local private network.
+--naitive                       -a      Run the chain/network without using docker
 --publish                       -p      List of ports to publish in docker. Default: '8545:8545,8550:8550'.
 
 EOT
 }
 
 COMMAND=()
+
+PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
+DOCKER_VERSION="v${PACKAGE_VERSION}"
 DOCKER_NAME="dex-chain"
+DOCKER_REPO="docker.pkg.github.com/dex-company/dex-chain"
+DOCKER_IMAGE="${DOCKER_REPO}/${DOCKER_NAME}:${DOCKER_VERSION}"
+
 PUBLISH_PORTS="8545:8545,8550:8550"
 
 
@@ -42,15 +48,15 @@ while [[ $# -gt 0 ]]; do
         shift
         shift
         ;;
-        -d|--dry-run)
+        -n|--dry-run)
         IS_DRY_RUN=1
         shift
         ;;
-        -i|--install)
-        IS_INSTALL=1
+        -d|--deploy)
+        IS_DEPLOY=1
         shift
         ;;
-        -n|--native)
+        -a|--native)
         IS_NATIVE=1
         shift
         ;;
@@ -78,7 +84,7 @@ case $COMMAND in
     local)
     ;;
     test)
-    IS_INSTALL=1
+    IS_DEPLOY=1
     COMMAND=local
     ;;
     *)
@@ -90,8 +96,8 @@ esac
 
 # create basic script line
 SCRIPT_LINE='./scripts/run_local_network.sh'
-if [ $IS_INSTALL ]; then
-    SCRIPT_LINE="$SCRIPT_LINE install"
+if [ $IS_DEPLOY ]; then
+    SCRIPT_LINE="$SCRIPT_LINE deploy"
 fi
 
 # if no - docker then, execute script directly
@@ -116,5 +122,7 @@ if [ $IS_DRY_RUN ]; then
     echo "Will execute: $DOCKER_LINE"
     exit
 fi
+
+docker pull $DOCKER_IMAGE
 $DOCKER_LINE
 
