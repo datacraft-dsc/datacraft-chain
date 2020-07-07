@@ -17,6 +17,7 @@ const localNetworkId = 1337
 
 module.exports = function(deployer, network) {
 
+
     const networkId = deployer.network_id
     const artifactsAll = artifactsLibrary.loadFiles(artifactsPath, { 'neq': networkId })
     let packageData = {
@@ -34,5 +35,6 @@ module.exports = function(deployer, network) {
     }
     artifactsLibrary.savePackage(`${artifactsPath}/artifacts.${networkId}.json.gz`, packageData)
     console.log(`    Created artifacts.${networkId}.json.gz package file.`)
+
 };
 

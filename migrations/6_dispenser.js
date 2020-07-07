@@ -1,15 +1,22 @@
 const writeContractArtifact = require('../src/writeContract')
+const DexDeployer = require('../src/dex-deployer')
 
-const Dispenser = artifacts.require("Dispenser");
+const Dispenser = artifacts.require('Dispenser');
 const DexToken = artifacts.require('DexToken');
 
-const owner = '0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee'
-
 module.exports = function(deployer, networkName, accounts) {
-    deployer.deploy(Dispenser).then( async () => {
-        const instance = await Dispenser.deployed()
-        await instance.methods['initialize(address,address)'](DexToken.address, owner, {from: owner})
-        writeContractArtifact(Dispenser, networkName)
+    const dexDeployer = new DexDeployer(networkName, accounts)
+
+    deployer.then( async () => {
+        const dispenserInstance = await dexDeployer.deploy(Dispenser, [DexToken.address, dexDeployer.accounts.owner])
+        // now setup the miner
+        const dexTokenInstance = await DexToken.deployed()
+        await dexTokenInstance.addMinter(dispenserInstance.address, { 'from': dexDeployer.accounts.deployer })
+        await dexTokenInstance.renounceMinter({ 'from': dexDeployer.accounts.deployer })
+        // console.log(await dexTokenInstance.owner())
     })
+
+
 }
+
 

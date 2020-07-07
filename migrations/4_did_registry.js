@@ -1,11 +1,17 @@
 const writeContractArtifact = require('../src/writeContract')
+const DexDeployer = require('../src/dex-deployer')
 
-const DIDRegistry = artifacts.require("DIDRegistry");
+const DIDRegistry = artifacts.require('DIDRegistry');
 
 
 module.exports = function(deployer, networkName, accounts) {
-    deployer.deploy(DIDRegistry).then( async () => {
-        writeContractArtifact(DIDRegistry, networkName)
+
+    const dexDeployer = new DexDeployer(networkName, accounts)
+
+    deployer.then( async () => {
+        await dexDeployer.deploy(DIDRegistry)
     })
+
+
 }
 
