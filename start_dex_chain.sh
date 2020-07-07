@@ -117,7 +117,7 @@ fi
 
 
 # setup docker and execute script line in docker
-DOCKER_LINE="docker run $PUBLISH_PORT_LIST $DOCKER_NAME $SCRIPT_LINE"
+DOCKER_LINE="docker run $PUBLISH_PORT_LIST $DOCKER_IMAGE $SCRIPT_LINE"
 if [ $IS_DRY_RUN ]; then
     echo "Will execute: $DOCKER_LINE"
     exit
