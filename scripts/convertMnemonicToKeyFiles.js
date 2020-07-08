@@ -56,7 +56,7 @@ for ( let index = 0; index < maxAddressCount; index ++) {
     const filename = address.replace('0x', '')
     const filePath = `${args.folder}/${filename}.json`
     if (args.dry_run) {
-        console.log(`Will write a key store data to ${filePath}`)
+        console.log(`Will write key store data to ${filePath}`)
 
     } else {
         console.log(`Writing key data to ${filePath}`)
