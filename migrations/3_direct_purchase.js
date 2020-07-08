@@ -7,7 +7,7 @@ const DexToken = artifacts.require('DexToken')
 
 module.exports = function(deployer, networkName, accounts) {
 
-    const dexDeployer = new DexDeployer(networkName, accounts)
+    const dexDeployer = new DexDeployer(deployer)
 
     deployer.then( async () => {
         await dexDeployer.deploy(DirectPurchase, [DexToken.address])

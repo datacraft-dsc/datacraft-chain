@@ -25,7 +25,7 @@ geth \
 --networkid $NETWORK_ID \
 --ethash.dagdir $DATA_FOLDER \
 --password $NETWORK_FOLDER/access.txt \
---unlock '0x32F098d6965ef0164151162787C69219F6D333dB,0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee,0x8D5606e48c385CF8E4198439Fa4cDF42B4DBb8C8' \
+--unlock '0x19C2a80BE6f5fA50d4274FecdF7F4b441fB852c8,0xF3dc3d005F3e854Ce904A7bbF1e09dCe286caF64,0xd520Bc7A6024C0CAB5B02c32e760bAfBe10d58ea' \
 --allow-insecure-unlock \
 --rpc \
 --rpcaddr '0.0.0.0' \
@@ -36,6 +36,7 @@ geth \
 --port 30303 \
 --maxpeers 0 \
 --shh \
+--etherbase '0x19C2a80BE6f5fA50d4274FecdF7F4b441fB852c8' \
 --mine \
 --miner.gasprice 1 \
 --miner.gastarget 1 \

@@ -5,7 +5,7 @@ const Dispenser = artifacts.require('Dispenser');
 const DexToken = artifacts.require('DexToken');
 
 module.exports = function(deployer, networkName, accounts) {
-    const dexDeployer = new DexDeployer(networkName, accounts)
+    const dexDeployer = new DexDeployer(deployer)
 
     deployer.then( async () => {
         const dispenserInstance = await dexDeployer.deploy(Dispenser, [DexToken.address, dexDeployer.accounts.owner])

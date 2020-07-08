@@ -24,14 +24,21 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-const HDWalletProvider = require('truffle-hdwallet-provider')
+const HDWalletProvider = require('@truffle/hdwallet-provider')
+const Web3 = require('web3')
 
-let hdWalletProvider;
-const setupWallet = (privateKey, url) => {
-    if (!hdWalletProvider) {
-        hdWalletProvider = new HDWalletProvider(privateKey, url)
+let hdWalletProviderInstance
+
+const setupWalletProvider = (url) => {
+    if (!hdWalletProviderInstance) {
+        const mnemonic = process.env.DEX_CHAIN_MNEMONIC
+        if (mnemonic) {
+            hdWalletProviderInstance = new HDWalletProvider(mnemonic, url, 0, 10)
+        } else {
+            hdWalletProviderInstance = new Web3.providers.HttpProvider(url)
+        }
     }
-    return hdWalletProvider
+    return hdWalletProviderInstance
 }
 
 module.exports = {
@@ -59,26 +66,22 @@ module.exports = {
       port: process.env.NODE_PORT, // Standard Ethereum port (default: none)
       network_id: "*",                // Only development network (default: none)
     },
+
     local: {
-        // provider: () => setupWallet('private-key', 'http://localhost:8545'),
+        provider: () => setupWalletProvider('http://localhost:8545'),
         protocol: 'http',
         host: 'localhost',
         port: 8545,
         gas: 600000000,
         gasPrice: 10000,
         network_id: 1337,
-        // address: "0xB4CB6E576409e0CbA1ae44Bd68B6F9551987AFee",
+        from: '0x19C2a80BE6f5fA50d4274FecdF7F4b441fB852c8',
+        accounts: {
+            // deployer is the same as the 'from' address. The miner that can do POA on this network
+            'deployer': '0x19C2a80BE6f5fA50d4274FecdF7F4b441fB852c8',
+            'owner': '0xF3dc3d005F3e854Ce904A7bbF1e09dCe286caF64',
+        }
     },
-
-    // Another network with more advanced options...
-    // advanced: {
-      // port: 8777,             // Custom port
-      // network_id: 1342,       // Custom network
-      // gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
-      // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
-      // from: <address>,        // Account to send txs from (default: accounts[0])
-      // websockets: true        // Enable EventEmitter interface for web3 (default: false)
-    // },
 
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
