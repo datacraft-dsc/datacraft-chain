@@ -3,9 +3,6 @@
 
 if [ "$1" == "deploy" ]; then
     IS_DEPLOY=1
-    echo "Will also deploy contracts to local network"
-    npm run clean
-    rm -f artifacts/artifacts.1337.json.gz
     echo "Starting up the package server"
     npm run package:server &
 fi

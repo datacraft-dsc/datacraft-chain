@@ -1,4 +1,3 @@
-const writeContractArtifact = require('../src/writeContract')
 const DexDeployer = require('../src/dex-deployer')
 
 const Provenance = artifacts.require("Provenance");

@@ -1,14 +1,17 @@
 # gitignore
 
+# build files
 node_modules/
 build/
+
+# local private network files
 local-network-data/
 
 # OpenZeppelin
 .openzeppelin/.session
+.openzeppelin/dev-1337.json
 
-# ignore local contract artifacts
+# local contract artifacts
 artifacts/*.1337.json
 artifacts/*.1337.json.gz
 
-# ignore contact build files
