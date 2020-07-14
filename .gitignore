@@ -4,8 +4,8 @@
 node_modules/
 build/
 
-# local private network files
-local-network-data/
+# local network/node files
+local-*/
 
 # OpenZeppelin
 .openzeppelin/.session
