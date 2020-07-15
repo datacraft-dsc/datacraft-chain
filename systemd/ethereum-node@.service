@@ -1,0 +1,12 @@
+[Unit]
+Description=Ethereum Node %i
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/home/ubuntu/scripts/run_node.sh %i
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
