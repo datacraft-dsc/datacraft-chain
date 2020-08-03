@@ -25,9 +25,8 @@ esac
 DATA_FOLDER=local-${NETWORK_NAME}-data
 NETWORK_FOLDER=networks/${NETWORK_NAME}
 KEYSTORE_FOLDER=$NETWORK_FOLDER/keystore
-NETWORK_ID=4
 
-geth --datadir $DATA_FOLDER \
+geth --datadir=$DATA_FOLDER \
 --${NETWORK_NAME} \
---networkid $NETWORK_ID \
---cache=1024
+--networkid=$NETWORK_ID \
+--cache=512
