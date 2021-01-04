@@ -1,6 +1,6 @@
-# Dex-chain
+# Datacraft-chain
 
-This repo now installs the Dex contracts, and also runs dex block chain network for testing.
+This repo now installs the Datacraft contracts, and also runs datacraft block chain network for testing.
 
 ## Development
 To develop any contract you need to install the supported packages.
@@ -55,8 +55,8 @@ Index | Address
 
 The first three accounts have been unlocked on the local node (this may be removed later).
 
-Each account has a keystore [file](https://github.com/DEX-Company/dex-chain/tree/master/networks/local/keystore)
-where the password is set too **dex-secret**.
+Each account has a keystore [file](https://github.com/datacraft-dsc/datacraft-chain/tree/master/networks/local/keystore)
+where the password is set too **datacraft-secret**.
 
 Or using a Hierarchical Deterministic Wallet, you can obtain the private key for each account using the following mnemonic:
 
@@ -79,7 +79,7 @@ If you have `geth` and `node` already installed, then you can run and deploy the
 
 Or you can run the docker file, which will do the same but you do not need to install any of the packages/software to run the private network.
 ```
-docker run -t dex-chain -p 8545:9545 -p 8550:8550 './scripts/run_local_network.sh' deploy
+docker run -t datacraft-chain -p 8545:9545 -p 8550:8550 './scripts/run_local_network.sh' deploy
 ```
 
 ## Contract Artifact Packages
@@ -115,7 +115,7 @@ So there are three methods for a starfish library to load the contract ABI files
 ### Local Private Network
 With the Local Private Network, there is an issue in obtaining the correct contract address. Since the contracts have just been deployed the addresses will always be different. So instead of copying the artifact files directly or using a pre-build artifact package file, the Local Private Network runs a simple http server at **http://localhost:8550** that provides the following uri's:
 
-+   /           GET       - return the status of the network, networkId and dex-chain version.
++   /           GET       - return the status of the network, networkId and datacraft-chain version.
 
 +   /artifacts  GET       - If deployed returns a JSON object with all of the deployed artifacts. If not deployed returns an empty object.
 
@@ -125,7 +125,7 @@ The starfish library can the just request this server for the latest artifacts t
 The Artifacts package contains the following structure:
 
     {
-        'version': '<dex-chain-version>',
+        'version': '<datacraft-chain-version>',
         'artifacts': {
             '<networkId1>': {
                 '<contractName1>': { // artifact data  },

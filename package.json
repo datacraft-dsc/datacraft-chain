@@ -1,5 +1,5 @@
 {
-  "name": "dex-chain",
+  "name": "datacraft-chain",
   "version": "0.1.0",
   "description": "# for Ubuntu sudo add-apt-repository ppa:ethereum/ethereum",
   "main": "index.js",
@@ -7,11 +7,11 @@
     "test": "test"
   },
   "bin": {
-    "dex-chain": "src/dex_chain.js"
+    "datacraft-chain": "src/datacraft_chain.js"
   },
   "scripts": {
     "clean": "rm -rf build",
-    "build:docker": "docker build -t dex-chain .",
+    "build:docker": "docker build -t datacraft-chain .",
     "compile": "npm run compile:truffle",
     "compile:truffle": "truffle compile",
     "compile:oz": "npx oz compile",
@@ -23,15 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DEX-Company/direct-purchase.git"
+    "url": "git+https://github.com/datacraft-dsc/direct-purchase.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DEX-Company/direct-purchase/issues"
+    "url": "https://github.com/datacraft-dsc/datacraft-chain/issues"
   },
-  "homepage": "https://github.com/DEX-Company/direct-purchase#readme",
+  "homepage": "https://github.com/datacraft-dsc/datacraft-chain",
   "devDependencies": {
     "@openzeppelin/cli": "^2.8.2",
     "@openzeppelin/contracts": "^3.1.0",
