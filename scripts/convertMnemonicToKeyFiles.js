@@ -2,7 +2,7 @@
 
 const argparse = require('argparse')
 const wallet = require('ethereumjs-wallet')
-const EthereumHDKey = require('ethereumjs-wallet/hdkey')
+const EthereumHDKey = wallet.hdkey
 const bip39 = require('bip39')
 const fs = require('fs')
 
@@ -48,7 +48,8 @@ const args = parser.parseArgs()
 const walletHDPath = `m/44'/60'/0'/0/`
 const maxAddressCount = args.count || 20
 
-const hdWallet = EthereumHDKey.fromMasterSeed(bip39.mnemonicToSeed(args.mnemonic))
+const masterKey = bip39.mnemonicToSeedSync(args.mnemonic)
+const hdWallet = EthereumHDKey.fromMasterSeed(masterKey)
 for ( let index = 0; index < maxAddressCount; index ++) {
     const wallet = hdWallet.derivePath(`${walletHDPath}${index}`).getWallet()
     const address = wallet.getChecksumAddressString()
@@ -60,7 +61,6 @@ for ( let index = 0; index < maxAddressCount; index ++) {
 
     } else {
         console.log(`Writing key data to ${filePath}`)
-        const keyText = JSON.stringify(wallet.toV3(args.password))
-        fs.writeFileSync(filePath, keyText)
+        wallet.toV3String(args.password).then(keyText => fs.writeFileSync(filePath, keyText))
     }
 }

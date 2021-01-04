@@ -46,5 +46,8 @@
     "elliptic": ">=6.5.3",
     "bl": ">=2.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bip39": "^3.0.3",
+    "ethereumjs-wallet": "^1.0.1"
+  }
 }

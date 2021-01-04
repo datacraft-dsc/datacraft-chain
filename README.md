@@ -53,6 +53,7 @@ Index | Address
  18   | 0xe3a802289Eff3d89AD211B5EC6BE8019BDdC5836
  19   | 0x8001A6Da1A2Cb86E2232F16AB50b1BC99dA70bE3
 
+
 The first three accounts have been unlocked on the local node (this may be removed later).
 
 Each account has a keystore [file](https://github.com/datacraft-dsc/datacraft-chain/tree/master/networks/local/keystore)
