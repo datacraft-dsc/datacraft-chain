@@ -1,5 +1,4 @@
 pragma solidity ^0.5.0;
-// Copyright BigchainDB GmbH and Ocean Protocol contributors
 // SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
 // Code is Apache-2.0 and docs are CC-BY-4.0
 
@@ -8,7 +7,7 @@ import '@openzeppelin/upgrades/contracts/Initializable.sol';
 
 
 /**
- * @title Ocean Protocol DirectPurchase Contract
+ * @title DirectPurchase Contract
  * @author Ilia Bukalov (ilyabukalov@gmail.com)
  *
  * @dev Implementation of the DirectPurchase.
@@ -29,7 +28,7 @@ contract DirectPurchase is Initializable {
     /**
     * @dev DirectPurchase Initializer
     *      Runs only on initial contract creation.
-    * @param _token refers to the DexToken address
+    * @param _token refers to the DatacraftToken address
     */
     function initialize(IERC20 _token
     )

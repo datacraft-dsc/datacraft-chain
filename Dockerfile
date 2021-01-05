@@ -1,7 +1,7 @@
 FROM node:14-alpine
 MAINTAINER <ilyabukalov@gmail.com>
 
-ENV HOME=/home/dex-chain
+ENV HOME=/home/datacraft-chain
 EXPOSE 8545
 
 WORKDIR $HOME

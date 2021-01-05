@@ -1,19 +1,14 @@
 pragma solidity ^0.5.0;
-// Copyright BigchainDB GmbH and Ocean Protocol contributors
 // SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
 // Code is Apache-2.0 and docs are CC-BY-4.0
-
-// Originaly copied from https://github.com/oceanprotocol/keeper-contracts/blob/develop/contracts/Dispenser.sol
-// changed for Dex
 
 import '@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol';
 import '@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol';
 // import '@openzeppelin/upgrades/contracts/Initializable.sol';
-import './DexToken.sol';
+import './DatacraftToken.sol';
 
 /**
- * @title Dex Dispenser Contract
- * @author Ocean Protocol Team, Dex
+ * @title Datacraft Dispenser Contract
  */
 contract Dispenser is Ownable {
 
@@ -35,7 +30,7 @@ contract Dispenser is Ownable {
     uint256 internal minPeriod;
     uint256 internal scale;
 
-    DexToken public dexToken;
+    DatacraftToken public datacraftToken;
 
     event RequestFrequencyExceeded(
         address indexed requester,
@@ -59,25 +54,25 @@ contract Dispenser is Ownable {
 
     /**
      * @dev Dispenser Initializer
-     * @param _dexTokenAddress The deployed contract address of an DexToken
+     * @param _datacraftTokenAddress The deployed contract address of an DatacraftToken
      * @param _owner The owner of the Dispenser
      * Runs only on initial contract creation.
      */
     function initialize(
-        address _dexTokenAddress,
+        address _datacraftTokenAddress,
         address _owner
     )
         external
         initializer
-        isValidAddress(_dexTokenAddress)
+        isValidAddress(_datacraftTokenAddress)
     {
         Ownable.initialize(_owner);
         // init total mint amount
         totalMintAmount = 0;
-        // instantiate DexToken contract
-        dexToken = DexToken(_dexTokenAddress);
+        // instantiate DatacraftToken contract
+        datacraftToken = DatacraftToken(_datacraftTokenAddress);
 
-        scale = 10 ** uint256(dexToken.decimals());
+        scale = 10 ** uint256(datacraftToken.decimals());
         maxAmount = uint256(1000).mul(scale);
         minPeriod = 0;
 
@@ -141,7 +136,7 @@ contract Dispenser is Ownable {
             return false;
         } else {
             require(
-                dexToken.mint(msg.sender, amountWithDigits),
+                datacraftToken.mint(msg.sender, amountWithDigits),
                 'Token minting failed.'
             );
 

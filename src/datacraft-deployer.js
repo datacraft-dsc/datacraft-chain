@@ -3,7 +3,7 @@ const { scripts, ConfigManager } = require('@openzeppelin/cli')
 const { add, push, create } = scripts
 
 
-class DexDeployer {
+class DatacraftDeployer {
 
 
     constructor(deployer) {
@@ -39,7 +39,7 @@ class DexDeployer {
     }
 }
 
-module.exports = DexDeployer
+module.exports = DatacraftDeployer
 
 
 

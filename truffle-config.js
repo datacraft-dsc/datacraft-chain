@@ -31,7 +31,7 @@ let hdWalletProviderInstance
 
 const setupWalletProvider = (url) => {
     if (!hdWalletProviderInstance) {
-        const mnemonic = process.env.DEX_CHAIN_MNEMONIC
+        const mnemonic = process.env.DATACRAFT_CHAIN_MNEMONIC
         if (mnemonic) {
             hdWalletProviderInstance = new HDWalletProvider(mnemonic, url, 0, 10)
         } else {

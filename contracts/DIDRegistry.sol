@@ -2,7 +2,7 @@ pragma solidity ^0.5.0;
 import '@openzeppelin/upgrades/contracts/Initializable.sol';
 
 /**
- * @title Dex DIDRegistry Contract
+ * @title Datacraft DIDRegistry Contract
  * @author Ilia Bukalov (ilyabukalov@gmail.com)
  *
  * @dev Implementation of the DIDRegistry.

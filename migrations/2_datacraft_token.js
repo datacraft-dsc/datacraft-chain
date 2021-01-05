@@ -1,16 +1,12 @@
 const DatacraftDeployer = require('../src/datacraft-deployer')
 
-const DirectPurchase = artifacts.require("DirectPurchase");
 const DatacraftToken = artifacts.require('DatacraftToken')
 
-
-module.exports = function(deployer, networkName, accounts) {
+module.exports = async function(deployer, networkName, accounts) {
 
     const datacraftDeployer = new DatacraftDeployer(deployer)
 
     deployer.then( async () => {
-        await datacraftDeployer.deploy(DirectPurchase, [DatacraftToken.address])
+        await datacraftDeployer.deploy(DatacraftToken, [datacraftDeployer.accounts.owner,  datacraftDeployer.accounts.deployer])
     })
-
 }
-
