@@ -16,5 +16,5 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.ACCESS_PACKAGES }}
         registry: docker.pkg.github.com
-        repository: datacraft-dsc/datacraft-chain/testing
+        repository: datacraft-dsc/datacraft-chain/datacraft-chain
         tag_with_ref: true
