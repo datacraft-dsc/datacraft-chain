@@ -1,0 +1,20 @@
+name: docker_publish
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  docker_publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish Docker to Github Packages
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.ACCESS_PACKAGES }}
+        registry: docker.pkg.github.com
+        repository: datacraft-dsc/datacraft-chain/testing
+        tag_with_ref: true
