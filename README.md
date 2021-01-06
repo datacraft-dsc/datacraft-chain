@@ -56,7 +56,7 @@ Index | Address
 
 The first three accounts have been unlocked on the local node (this may be removed later).
 
-Each account has a keystore [file](https://github.com/datacraft-dsc/datacraft-chain/tree/master/networks/local/keystore)
+Each account has a keystore [file](https://github.com/datacraft-dsc/datacraft-chain/tree/release/networks/local/keystore)
 where the password is set too **datacraft-secret**.
 
 Or using a Hierarchical Deterministic Wallet, you can obtain the private key for each account using the following mnemonic:
